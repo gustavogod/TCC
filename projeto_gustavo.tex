@@ -1,0 +1,87 @@
+\documentclass[
+	%fleqn,				% alinha todas as equações a esquerda
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	projeto,			% tipo do trabalho (opções: tcc, projeto)
+]{cct-uenp}
+\input{packages.tex}
+\input{config.tex}
+
+% ---
+% Informações de dados para CAPA, FOLHA DE ROSTO e outros elementos
+% ---
+\titulo{Algoritmo para verificação formal do protocolo MQTT}
+\tituloingles{Title of the Work}
+\palavraschave{Latex. Template ABNT. Editoração de texto.}
+\palavraschaveingles{Latex. ABNT. Text editoration.}
+\autor{Gustavo Oliveira Dias}
+\citacaoautor{DIAS, G. O.}
+\data{2017}
+
+\diadefesa{15 de Setembro}
+\orientador{Prof. Me. Wellington Aparecido Della Mura} % É membro nato e presidente da Banca Examinadora
+% \coorientador{Prof(a). Dr(a). Nome do(a) Coorientador(a)} % Pode ou não ser membro da Banca; se for, deve ser incluído como membro a seguir
+\membrobancadois{Prof. Me. Carlos Eduardo Ribeiro}
+\instmembrobancadois{Universidade Estadual do Norte do Paraná}
+\membrobancatres{Prof. Dr. Bruno Squizato Faiçal}
+\instmembrobancatres{Universidade Estadual do Norte do Paraná}
+
+
+\makeindex % compila o indice
+
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\imprimircapa
+
+\imprimirfolhaderosto*
+
+\imprimirfolhadeaprovacao
+
+%\input{pre-textual.tex}
+% ---
+% Sumario (elemento obrigatório)
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{uenp-header} % Configura cabeçalho para apresentar apenas números de página
+
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+
+\input{textual/introducao}
+\input{textual/fundamenta}
+\input{textual/projeto}
+\input{textual/cronograma}
+\input{textual/trabalhos_relacionados}
+
+%%%% não esquece de deixar a impressão para imprimir só na frente%%%%%%%%%%%%%
+
+% https://www.sinonimos.com.br/
+% http://www.conjuga-me.net/
+% https://www.significados.com.br/
+% https://sci-hub.cc/
+% http://citeseerx.ist.psu.edu/
+% http://www.cesar.edu.br/qualis/
+% http://libgen.io/
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+\bibliography{bibliografia}
+
+\end{document}

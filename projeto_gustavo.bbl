@@ -1,0 +1,199 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem{weber2010internet}
+\abntrefinfo{Weber}{WEBER}{2010}
+{WEBER, R.~H. Internet of things--new security and privacy challenges.
+\emph{Computer law \& security review}, Elsevier, v.~26, n.~1, p. 23--30,
+  2010.}
+
+\bibitem{iot2016}
+\abntrefinfo{Santos et al.}{SANTOS et al.}{2016}
+{SANTOS, B.~P. et al. Internet das coisas: da teoria à prática.
+\emph{Minicursos / XXXIV Simpósio Brasileiro de Redes de Computadores e
+  Sistemas Distribuídos}, p. 1--50, 2016.}
+
+\bibitem{gartner2015gartner}
+\abntrefinfo{Gartner’s\ldots}{GARTNER’S\ldots}{2015}
+{GARTNER’S 2015 hype cycle for emerging technologies identifies the computing
+  innovations that organizations should monitor.
+\emph{Gartner Web site}, 2015.
+Dispon{\'\i}vel em: \url{http://www.gartner.com/newsroom/id/3114217}.}
+
+\bibitem{mukherjee2016ranking}
+\abntrefinfo{Mukherjee}{MUKHERJEE}{2016}
+{MUKHERJEE, S.
+\emph{Ranking System for IoT Industry Platform}.
+Disserta\c{c}\~{a}o (Mestrado) --- KTH Royal Institute of Technology, 2016.}
+
+\bibitem{press2014internet}
+\abntrefinfo{Press}{PRESS}{2014}
+{PRESS, G. Internet of things by the numbers: Market estimates and forecasts.
+\emph{Forbes}, 2014.
+Dispon{\'\i}vel em:
+  \url{https://www.forbes.com/sites/gilpress/2014/08/22/internet-of-things-by-the-numbers-market-estimates-and-forecasts/\#6b493e34b919}.}
+
+\bibitem{danova2014bi}
+\abntrefinfo{Danova}{DANOVA}{2014}
+{DANOVA, T. The internet of everything.
+\emph{Business Insider}, 2014.
+Dispon{\'\i}vel em:
+  \url{http://www.businessinsider.com/the-internet-of-everything-2014-slide-deck-sai-2014-2?op=1/\#}.}
+
+\bibitem{sankarinternet}
+\abntrefinfo{Sankar e Srinivasan}{SANKAR; SRINIVASAN}{2016}
+{SANKAR, S.; SRINIVASAN, P. Internet of things (iot): A survey on empowering
+  technologies, research opportunities and applications.
+\emph{International Journal of Pharmacy & Technology}, 2016.}
+
+\bibitem{bandyopadhyay2011internet}
+\abntrefinfo{Bandyopadhyay e Sen}{BANDYOPADHYAY; SEN}{2011}
+{BANDYOPADHYAY, D.; SEN, J. Internet of things: Applications and challenges in
+  technology and standardization.
+\emph{Wireless Personal Communications}, Springer, v.~58, n.~1, p. 49--69,
+  2011.}
+
+\bibitem{atzori2010internet}
+\abntrefinfo{Atzori, Iera e Morabito}{ATZORI; IERA; MORABITO}{2010}
+{ATZORI, L.; IERA, A.; MORABITO, G. The internet of things: A survey.
+\emph{Computer networks}, Elsevier, v.~54, n.~15, p. 2787--2805, 2010.}
+
+\bibitem{morgan2014forbes}
+\abntrefinfo{Morgan}{MORGAN}{2014}
+{MORGAN, J. Everything you need to know about the internet of things.
+\emph{Forbes}, 2014.
+Dispon{\'\i}vel em:
+  \url{https://www.forbes.com/sites/jacobmorgan/2014/10/30/everything-you-need-to-know-about-the-internet-of-things/\#2c360eea3ae7}.}
+
+\bibitem{suo2012security}
+\abntrefinfo{Suo et al.}{SUO et al.}{2012}
+{SUO, H. et al. Security in the internet of things: a review. In:  IEEE.
+  \emph{Computer Science and Electronics Engineering (ICCSEE), 2012
+  international conference on}. [S.l.], 2012. v.~3, p. 648--651.}
+
+\bibitem{mqttv3.1}
+\abntrefinfo{Locke}{LOCKE}{2010}
+{LOCKE, D. Mq telemetry transport (mqtt) v3. 1 protocol specification.
+\emph{IBM developerWorks Technical Library}, 2010.}
+
+\bibitem{mqttv3.1.1}
+\abntrefinfo{Banks e Gupta}{BANKS; GUPTA}{2014}
+{BANKS, A.; GUPTA, R. \emph{Message Queuing Telemetry Transport (MQTT) v3.1.1}.
+  OASIS Standard, 2014.
+Dispon{\'\i}vel em:
+  \url{http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html}.}
+
+\bibitem{chen2014responsive}
+\abntrefinfo{Chen et al.}{CHEN et al.}{2014}
+{CHEN, W.-J. et al. \emph{Responsive Mobile User Experience Using MQTT and IBM
+  MessageSight}. [S.l.]: IBM Redbooks, 2014.}
+
+\bibitem{aziz2016formal}
+\abntrefinfo{Aziz}{AZIZ}{2016}
+{AZIZ, B. A formal model and analysis of an iot protocol.
+\emph{Ad Hoc Networks}, Elsevier, v.~36, p. 49--57, 2016.}
+
+\bibitem{mladenov2017formal}
+\abntrefinfo{Mladenov et al.}{MLADENOV et al.}{2017}
+{MLADENOV, K. et al. Formal verification of the implementation of the mqtt
+  protocol in iot devices.
+\emph{SNE Master Research Projects 2016 - 2017}, 2017.}
+
+\bibitem{clarke1999model}
+\abntrefinfo{Clarke, Grumberg e Peled}{CLARKE; GRUMBERG; PELED}{1999}
+{CLARKE, E.; GRUMBERG, O.; PELED, D. \emph{Model Checking}. [S.l.]: MIT Press,
+  1999.
+ISBN 9780262032704.}
+
+\bibitem{zenith1990linda}
+\abntrefinfo{Zenith}{ZENITH}{1990}
+{ZENITH, S.~E. Linda coordination language; subsystem kernel architecture (on
+  transputers).
+\emph{RR-794, Yale University, New Haven, CT (May 1990)}, v.~31, 1990.}
+
+\bibitem{mayer2009security}
+\abntrefinfo{Mayer}{MAYER}{2009}
+{MAYER, C.~P. Security and privacy challenges in the internet of things.
+\emph{Electronic Communications of the EASST}, v.~17, 2009.}
+
+\bibitem{buyya2016internet}
+\abntrefinfo{Buyya e Dastjerdi}{BUYYA; DASTJERDI}{2016}
+{BUYYA, R.; DASTJERDI, A. \emph{Internet of Things: Principles and Paradigms}.
+  [S.l.]: Elsevier Science, 2016.
+ISBN 9780128093474.}
+
+\bibitem{kushalnagar2007ipv6}
+\abntrefinfo{Kushalnagar, Montenegro e Schumacher}{KUSHALNAGAR; MONTENEGRO;
+  SCHUMACHER}{2007}
+{KUSHALNAGAR, N.; MONTENEGRO, G.; SCHUMACHER, C. \emph{IPv6 over low-power
+  wireless personal area networks (6LoWPANs): overview, assumptions, problem
+  statement, and goals}.
+[S.l.], 2007.}
+
+\bibitem{fielding2014hypertext}
+\abntrefinfo{Fielding e Reschke}{FIELDING; RESCHKE}{2014}
+{FIELDING, R.; RESCHKE, J. Hypertext transfer protocol (http/1.1): Message
+  syntax and routing.
+IETF, 2014.}
+
+\bibitem{shelby2014constrained}
+\abntrefinfo{Shelby, Hartke e Bormann}{SHELBY; HARTKE; BORMANN}{2014}
+{SHELBY, Z.; HARTKE, K.; BORMANN, C. The constrained application protocol
+  (coap).
+IETF, 2014.}
+
+\bibitem{al2015toward}
+\abntrefinfo{Al-Fuqaha et al.}{AL-FUQAHA et al.}{2015}
+{AL-FUQAHA, A. et al. Toward better horizontal integration among iot services.
+\emph{IEEE Communications Magazine}, IEEE, v.~53, n.~9, p. 72--79, 2015.}
+
+\bibitem{stanford2013mqtt}
+\abntrefinfo{Stanford-Clark e Truong}{STANFORD-CLARK; TRUONG}{2013}
+{STANFORD-CLARK, A.; TRUONG, H.~L. Mqtt for sensor networks (mqtt-sn) protocol
+  specification.
+\emph{International business machines (IBM) Corporation version}, v.~1, 2013.}
+
+\bibitem{dds2015specifi}
+\abntrefinfo{Data\ldots}{DATA\ldots}{2015}
+{DATA distribution services specification, V1.2.
+Object Manage Group (OMG), 2015.}
+
+\bibitem{amqp2012oasis}
+\abntrefinfo{Godfrey, Ingham e Schloming}{GODFREY; INGHAM; SCHLOMING}{2012}
+{GODFREY, R.; INGHAM, D.; SCHLOMING, R. \emph{Advanced Message Queuing Protocol
+  (AMQP) Version 1.0}. [S.l.]: OASIS Standard, 2012.}
+
+\bibitem{baeten2005brief}
+\abntrefinfo{Baeten}{BAETEN}{2005}
+{BAETEN, J.~C. A brief history of process algebra.
+\emph{Theoretical Computer Science}, Elsevier, v.~335, n.~2-3, p. 131--146,
+  2005.}
+
+\bibitem{milner1986ccs}
+\abntrefinfo{Milner}{MILNER}{1986}
+{MILNER, R. A calculus os communicating systems.
+\emph{Laboratory for Foundations of Computer Science}, LFCS Report Series,
+  1986.}
+
+\bibitem{milner1992calculus}
+\abntrefinfo{Milner, Parrow e Walker}{MILNER; PARROW; WALKER}{1992a}
+{MILNER, R.; PARROW, J.; WALKER, D. A calculus of mobile processes, i.
+\emph{Information and computation}, Elsevier, v.~100, n.~1, p. 1--40, 1992.}
+
+\bibitem{milner1992calculus2}
+\abntrefinfo{Milner, Parrow e Walker}{MILNER; PARROW; WALKER}{1992b}
+{MILNER, R.; PARROW, J.; WALKER, D. A calculus of mobile processes, ii.
+\emph{Information and Computation}, Elsevier, v.~100, n.~1, p. 41--77, 1992.}
+
+\bibitem{berger2003two}
+\abntrefinfo{Berger e Honda}{BERGER; HONDA}{2003}
+{BERGER, M.; HONDA, K. The two-phase commitment protocol in an extended
+  $\pi$-calculus.
+\emph{Electronic Notes in Theoretical Computer Science}, Elsevier, v.~39, n.~1,
+  p. 21--46, 2003.}
+
+\end{thebibliography}

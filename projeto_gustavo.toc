@@ -1,0 +1,42 @@
+\changetocdepth {4}
+\select@language {brazil}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}Formula\IeC {\c c}\IeC {\~a}o e Escopo do Problema}{8}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objetivos gerais e espec\IeC {\'\i }ficos}{8}{section.1.3}
+\contentsline {section}{\numberline {1.4}M\IeC {\'e}todo de pesquisa}{9}{section.1.4}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamenta\IeC {\c c}\IeC {\~a}o Te\IeC {\'o}rica}}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Internet das Coisas}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Aplica\IeC {\c c}\IeC {\~o}es}{13}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Protocolos de comunica\IeC {\c c}\IeC {\~a}o}{14}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}HTTP}{16}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}CoAP}{17}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}MQTT}{20}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}N\IeC {\'\i }veis de \textit {Quality of Service} (QoS) do MQTT}{23}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Compara\IeC {\c c}\IeC {\~a}o com outros protocolos}{27}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Contratos}{29}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Contratos eletr\IeC {\^o}nicos}{29}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Verifica\IeC {\c c}\IeC {\~a}o de contratos eletr\IeC {\^o}nicos}{30}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Representa\IeC {\c c}\IeC {\~a}o formal de sistemas}{31}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}L\IeC {\'o}gica proposicional}{31}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}L\IeC {\'o}gica temporal}{34}{subsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.2.1}L\IeC {\'o}gica temporal linear}{34}{subsubsection.2.4.2.1}
+\contentsline {subsubsection}{\numberline {2.4.2.2}L\IeC {\'o}gica linear ramificada}{35}{subsubsection.2.4.2.2}
+\contentsline {section}{\numberline {2.5}C\IeC {\'a}lculo de Processos}{36}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}C\IeC {\'a}lculo de Sistemas de Comunica\IeC {\c c}\IeC {\~a}o}{37}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}C\IeC {\'a}lculo-$\pi $}{40}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}\IeC {\'A}lgebra temporal de processos TPi}{43}{subsection.2.5.3}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Projeto}}{45}{chapter.3}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Cronograma}}{47}{chapter.4}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Trabalhos Relacionados}}{49}{chapter.5}
+\contentsline {section}{\numberline {5.1}Especifica\IeC {\c c}\IeC {\~a}o formal e an\IeC {\'a}lise de um protocolo de IoT}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Linguagem para contratos multilaterais}{49}{section.5.2}
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{51}{section*.10}
