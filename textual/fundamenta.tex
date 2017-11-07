@@ -475,7 +475,7 @@ O protocolo MQTT-SN é uma adaptação do MQTT voltada para redes de sensores, p
 
 Utilizando uma arquitetura baseada em um \textit{broker}, o DDS (\textit{Data Distribution Service})~\cite{dds2015specifi} é semelhante ao MQTT. Porém, o DDS mostra-se mais adequado para serviços. Uma das principais diferenças está no suporte para \textit{Qualities os Service}, enquanto o MQTT detêm 3 níveis de QoS, o DDS opera com 23, além do suporte a implementação com UDP e DTLS.
 
-Portando aplicabilidades distintas, o AMQP~\cite{amqp2012oasis} e o XMPP~\cite{xmpp2011extensiblem}, mostram-se ideais para ambientes orientados a mensagens e \textit{chats} multilaterais de mensagem, voz e vídeo, respectivamente.
+Portando aplicabilidades distintas, o AMQP~\cite{amqp2012oasis} e o XMPP~\cite{xmpp2011extensible}, mostram-se ideais para ambientes orientados a mensagens e \textit{chats} multilaterais de mensagem, voz e vídeo, respectivamente.
 
 Ao analisar as particularidades de cada protocolo, percebe-se o caráter mais abrangente do CoAP e do MQTT, enquanto que os demais são projetados para ambientes mais específicos, o que não impede que uma aplicação complexa possa empregar diferentes protocolos em diferentes contextos.   
 
@@ -648,19 +648,19 @@ A lógica temporal é um formalismo usado para descrever sequências de transaç
 
 \begin{figure}[ht]
 	\centering
-\begin{eqnarray}
-\pi \models \top && \\
-\pi \nvDash \bot && \\
-\pi \models p \Longleftrightarrow p \in L(\pi_{1}) && \\
-\pi \models \neg \varphi \iff \pi \not \models \varphi && \\
-\pi \models \varphi \wedge \varphi' \iff \pi \models \varphi \mbox{ e } \pi \models \varphi' && \\
-\pi \models \varphi \vee \varphi' \iff \pi \models \varphi \mbox{ ou } \pi \models \varphi' && \\
-\pi \models \varphi \to \varphi' \iff \pi \models \varphi \mbox{ sempre que } \pi \models \varphi' && \\
-\pi \models X\varphi \iff \pi_2 \models \varphi && \\
-\pi \models G\varphi \iff \forall i \geq 1 \mid \pi_i \models \varphi && \\
-\pi \models F\varphi \iff \exists i \geq 1 \mid \pi_i \models \varphi && \\
-\pi \models \varphi U \varphi' \iff \exists i \geq 1 \mid \pi_i \models \varphi' \mbox{ e } \forall j = 1 \wedge j < i \mid \pi_j \models \varphi &&
-\end{eqnarray}
+	\begin{align}
+	&\pi \models \top \\
+	&\pi \nvDash \bot \\
+	&\pi \models p \Longleftrightarrow p \in L(\pi_{1}) \\
+	&\pi \models \neg \varphi \iff \pi \not \models \varphi \\
+	&\pi \models \varphi \wedge \varphi' \iff \pi \models \varphi \mbox{ e } \pi \models \varphi' \\
+	&\pi \models \varphi \vee \varphi' \iff \pi \models \varphi \mbox{ ou } \pi \models \varphi' \\
+	&\pi \models \varphi \to \varphi' \iff \pi \models \varphi \mbox{ sempre que } \pi \models \varphi' \\
+	&\pi \models X\varphi \iff \pi_2 \models \varphi \\
+	&\pi \models G\varphi \iff \forall i \geq 1 \mid \pi_i \models \varphi \\
+	&\pi \models F\varphi \iff \exists i \geq 1 \mid \pi_i \models \varphi \\
+	&\pi \models \varphi U \varphi' \iff \exists i \geq 1 \mid \pi_i \models \varphi' \mbox{ e } \forall j = 1 \wedge j < i \mid \pi_j \models \varphi
+	\end{align}
 	\caption{Semântica da LTL.
 		\label{fig:ltl_sem}}
 \end{figure}
@@ -669,33 +669,34 @@ A lógica temporal é um formalismo usado para descrever sequências de transaç
 \subsubsection{Lógica linear ramificada}
 
 A sintaxe de construção de fórmulas CTL consiste em:
+\begin{equation}
 \begin{align*}
-& \varphi ::= \top \mid \perp \mid p \mid \neg \varphi \mid \varphi \wedge \varphi \mid \varphi\vee\varphi \mid \varphi \to \varphi \mid \\
+& \varphi ::= \top \mid \perp \mid p \mid \neg \varphi \mid \varphi \wedge \varphi \mid \varphi\vee\varphi \mid \varphi \to \varphi \mid \\ 
 & AX\varphi \mid EX\varphi \mid AF\varphi \mid EF\varphi \mid AG\varphi \mid EG\varphi \mid A[\varphi U \varphi]\mid E[\varphi U \varphi]
-\numberthis
 \end{align*}
+\end{equation} 
 
 \begin{figure}[ht]
 	\centering
-	\begin{eqnarray}
-	\mathcal{M},s  \models  \top && \\
-	\mathcal{M},s  \not\models  \perp && \\
-	\mathcal{M},s  \models  p \iff p \in L(s) && \\
-	\mathcal{M},s  \models  \neg \varphi \iff \pi \not \models \varphi && \\
-	\mathcal{M},s  \models  \varphi \wedge \varphi' \iff \mathcal{M},s \models \varphi \mbox{ e } \mathcal{M},s \models \varphi' && \\
-	\mathcal{M},s  \models  \varphi \vee \varphi' \iff \mathcal{M},s \models \varphi \mbox{ ou } \mathcal{M},s \models \varphi' && \\
-	\mathcal{M},s  \models  \varphi \to \varphi' \iff \mathcal{M},s \not\models \varphi \mbox{ ou } \mathcal{M},s \models \varphi' && \\
-	\mathcal{M},s  \models  AX\varphi \iff \forall s_1 \mid s\to s_1 \mbox{ com } \mathcal{M}, s_1 \models \varphi && \\
-	\mathcal{M},s  \models  EX\varphi \iff \exists s_1 \mid s\to s_1 \mbox{ com } \mathcal{M}, s_1 \models \varphi && \\
-	\mathcal{M},s  \models  AG\varphi \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \forall s_i \in \pi \mbox{ com } \mathcal{M}, s_i \models \varphi && \\
-	\mathcal{M},s  \models  EG\varphi \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \forall s_i \in \pi \mbox{ com } \mathcal{M}, s_i \models \varphi && \\
-	\mathcal{M},s  \models  AF\varphi \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \exists s_i \in \pi \mid \mathcal{M}, s_i \models \varphi && \\
-	\mathcal{M},s  \models  EF\varphi \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \exists s_i \in \pi \mid \mathcal{M}, s_i \models \varphi && \\
-	\mathcal{M},s  \models  A[\varphi U \varphi'] \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \exists s_i \in \pi \mid && \\
-	\mathcal{M}, s_i \models \varphi' \mbox{ e } \forall j < i \mbox{ com }  \mathcal{M}, s_j \models \varphi && \\
-	\mathcal{M},s  \models  E[\varphi U \varphi'] \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \exists s_i \in \pi \mid && \\
-	\mathcal{M}, s_i \models \varphi' \mbox{ e } \forall j < i \mbox{ com }  \mathcal{M}, s_j \models \varphi &&
-	\end{eqnarray}
+	\begin{align}
+	&\mathcal{M},s  \models  \top \\
+	&\mathcal{M},s  \not\models  \perp \\
+	&\mathcal{M},s  \models  p \iff p \in L(s) \\
+	&\mathcal{M},s  \models  \neg \varphi \iff \pi \not \models \varphi \\
+	&\mathcal{M},s  \models  \varphi \wedge \varphi' \iff \mathcal{M},s \models \varphi \mbox{ e } \mathcal{M},s \models \varphi' \\
+	&\mathcal{M},s  \models  \varphi \vee \varphi' \iff \mathcal{M},s \models \varphi \mbox{ ou } \mathcal{M},s \models \varphi' \\
+	&\mathcal{M},s  \models  \varphi \to \varphi' \iff \mathcal{M},s \not\models \varphi \mbox{ ou } \mathcal{M},s \models \varphi' \\
+	&\mathcal{M},s  \models  AX\varphi \iff \forall s_1 \mid s\to s_1 \mbox{ com } \mathcal{M}, s_1 \models \varphi \\
+	&\mathcal{M},s  \models  EX\varphi \iff \exists s_1 \mid s\to s_1 \mbox{ com } \mathcal{M}, s_1 \models \varphi \\
+	&\mathcal{M},s  \models  AG\varphi \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \forall s_i \in \pi \mbox{ com } \mathcal{M}, s_i \models \varphi \\
+	&\mathcal{M},s  \models  EG\varphi \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \forall s_i \in \pi \mbox{ com } \mathcal{M}, s_i \models \varphi \\
+	&\mathcal{M},s  \models  AF\varphi \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \exists s_i \in \pi \mid \mathcal{M}, s_i \models \varphi \\
+	&\mathcal{M},s  \models  EF\varphi \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \mbox{ e } \exists s_i \in \pi \mid \mathcal{M}, s_i \models \varphi \\
+	&\mathcal{M},s  \models  A[\varphi U \varphi'] \iff \forall \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \exists s_i \in \pi \mid \\
+	&\mathcal{M}, s_i \models \varphi' \mbox{ e } \forall j < i \mbox{ com }  \mathcal{M}, s_j \models \varphi \\
+	&\mathcal{M},s  \models  E[\varphi U \varphi'] \iff \exists \pi = s_1\to s_2\to s_3\to \dots \mid s_1 = s \exists s_i \in \pi \mid \\
+	&\mathcal{M}, s_i \models \varphi' \mbox{ e } \forall j < i \mbox{ com }  \mathcal{M}, s_j \models \varphi
+	\end{align}
 	\caption{Semântica da CTL.
 		\label{fig:ctl_sem}}
 \end{figure}
@@ -1002,11 +1003,11 @@ Chamadas de definição de processos são expressas na forma $A(x)$, as quais in
 
 A Semântica Operacional Estrutural da TPi é dada em termos de sua congruência estrutural $\equiv$, e a relação de suas transições rotuladas $\stackrel{\alpha}{\longrightarrow}$ é apresentada na Tabela~\ref{tab:tpi_sos}, em que $fn(P)$ denota o conjunto de nomes livres de $P$.
 
-Definições de $\equiv$ são padronizadas~\cite{milner1992calculus2}, exceto pelas regras 6, 7, 8 e 9, as quais lidam com cronômetros zerados e infinitos, e chamadas de definição de processos parametrização e não parametrizadas, respectivamente.
+Definições de $\equiv$ são padronizadas~\cite{milner1992calculus2}, exceto pelas regras~\ref{eq:6},~\ref{eq:7},~\ref{eq:8} e~\ref{eq:9}, as quais lidam com cronômetros zerados e infinitos, e chamadas de definição de processos parametrização e não parametrizadas, respectivamente.
 
 Os rótulos $\alpha \in \{\stackrel{\overline{x}\langle y \rangle}{\longrightarrow}, \stackrel{\overline{x}(y)}{\longrightarrow}, \stackrel{x(z)}{\longrightarrow}, \stackrel{\tau}{\longrightarrow}\}$, expressam saídas livres e vinculadas, entradas e ações nulas. 
 
-As regras de transição $\stackrel{\alpha}{\longrightarrow}$ são descritas detalhadamente por~\cite{berger2003two}, exceto pela regra 19, que define uma função de passagem de tempo $\eth : \mathcal{P} \longrightarrow \mathcal{P}$, que expressa a marcação de tempo dos cronômetros ativos, no qual uma entrada temporizada está aguardando a aceitação de uma mensagem, em que:
+As regras de transição $\stackrel{\alpha}{\longrightarrow}$ são descritas detalhadamente por~\cite{berger2003two}, exceto pela regra~\ref{eq:19}, que define uma função de passagem de tempo $\eth : \mathcal{P} \longrightarrow \mathcal{P}$, que expressa a marcação de tempo dos cronômetros ativos, no qual uma entrada temporizada está aguardando a aceitação de uma mensagem, em que:
 
 $\eth(P)=$
 \begin{cases}
@@ -1020,55 +1021,37 @@ $\eth(P)=$
 	\text{$P$}, & \text{outra forma}
 \end{cases} 
 
-\begin{table}[!ht]
-	\centering\tiny{
-		\caption{Semântica Operacional Estrutural da TPi~\cite{aziz2016formal}. \label{tab:tpi_sos}}
-\begin{tabular}{|c|c|}
-	\hline 
-	\textbf{nº} & \textbf{Regras da relação} $\equiv$ \\ 
-	\hline 
-	1 & $(\mathcal{P}/ \equiv, |, \textbf{0})~é~um~monóide~comutativo$ \\ 
-	\hline 
-	2 & $(vx)\textbf{0} \equiv \textbf{0}$ \\ 
-	\hline 
-	3 & $(vx)(vy)P \equiv (vy)(vx)P$ \\ 
-	\hline 
-	4 & $!P \equiv P|!P$ \\ 
-	\hline 
-	5 & $(vx)(P|Q) \equiv (P|(vx)Q) se x \notin fn(Q)$ \\ 
-	\hline 
-	6 & $timer^{0}(x(z).P,Q) \equiv Q$ \\ 
-	\hline 
-	7 & $timer^{\infty}(x(z).P,Q) \equiv x(z).P$ \\ 
-	\hline 
-	8 & $A(x) \equiv P[x/y], em que A(y) \stackrel{def}{=} P$ \\ 
-	\hline 
-	9 & $A() \equiv P, em que A() \stackrel{def}{=} P$ \\ 
-	\hline 
-	\textbf{nº} & \textbf{Regras da relação $\stackrel{\alpha}{\longrightarrow}$} \\ 
-	\hline 
-	10 & $\overline{x}\langle y \rangle.P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} P$ \\ 
-	\hline 
-	11 & $timer^{t+1}(x(z).P,Q) \stackrel{x(z)}{\longrightarrow} P$ \\ 
-	\hline 
-	12 & $P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} Q ~~ \Rightarrow ~~ (vy)P \stackrel{\overline{x}(y)}{\longrightarrow} se~ x \neq y $ \\ 
-	\hline 
-	13 & $P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} P', Q \stackrel{x(z)}{\longrightarrow} Q' ~~ \Rightarrow ~~ P|Q \stackrel{\tau}{\longrightarrow} P' | Q'[y/z]$ \\ 
-	\hline 
-	14 & $P \stackrel{\overline{x}(y)}{\longrightarrow} P', Q \stackrel{x(z)}{\longrightarrow} Q' ~~ \Rightarrow ~~ P|Q \stackrel{\tau}{\longrightarrow} (vy)(P'|Q'[y/z])$ \\ 
-	\hline 
-	15 & $P \stackrel{\alpha}{\longrightarrow} Q ~~ \Rightarrow ~~ (vx)P \stackrel{\alpha}{\longrightarrow} (vx)Q~se~ x \neq fn(\alpha)$ \\ 
-	\hline 
-	16 & $P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ P|Q \stackrel{\alpha}{\longrightarrow} P'|Q$ \\ 
-	\hline 
-	17 & $P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ P + Q\stackrel{\alpha}{\longrightarrow} P'$ \\ 
-	\hline 
-	18 & $P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ Q + P\stackrel{\alpha}{\longrightarrow} P'$ \\ 
-	\hline 
-	19 & $P \stackrel{\tau}{\longrightarrow} \eth  (P)$ \\ 
-	\hline 
-\end{tabular}  
-	}
-\end{table}
+\begin{figure}[ht]
+	\centering
+	Regras da relação $\equiv$ :
+	\begin{align}
+		& \mathcal{P}/ \equiv, |, \textbf{0})~é~um~monóide~comutativo \\
+		& (vx)\textbf{0} \equiv \textbf{0} \\
+		& (vx)(vy)P \equiv (vy)(vx)P \\
+		& !P \equiv P|!P \\
+		& (vx)(P|Q) \equiv (P|(vx)Q) se x \notin fn(Q) \\ 
+		& timer^{0}(x(z).P,Q) \equiv Q \label{eq:6} \\ 
+		& timer^{\infty}(x(z).P,Q) \equiv x(z).P \label{eq:7} \\
+		& A(x) \equiv P[x/y],~em~que~A(y) \stackrel{def}{=} P \label{eq:8} \\
+		& A() \equiv P,~em~que~A() \stackrel{def}{=} P \label{eq:9}
+	\end{align}
+	Regras da relação $\stackrel{\alpha}{\longrightarrow}$ : 
+	\begin{align}
+		& \overline{x}\langle y \rangle.P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} P \\		
+		& timer^{t+1}(x(z).P,Q) \stackrel{x(z)}{\longrightarrow} P \\
+		& P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} Q ~~ \Rightarrow ~~ (vy)P \stackrel{\overline{x}(y)}{\longrightarrow} se~ x \neq y \\
+		& P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} P', Q \stackrel{x(z)}{\longrightarrow} Q' ~~ \Rightarrow ~~ P|Q \stackrel{\tau}{\longrightarrow} P' | Q'[y/z] \\
+		& P \stackrel{\overline{x}(y)}{\longrightarrow} P', Q \stackrel{x(z)}{\longrightarrow} Q' ~~ \Rightarrow ~~ P|Q \stackrel{\tau}{\longrightarrow} (vy)(P'|Q'[y/z]) \\
+		& P \stackrel{\alpha}{\longrightarrow} Q ~~ \Rightarrow ~~ (vx)P \stackrel{\alpha}{\longrightarrow} (vx)Q~se~ x \neq fn(\alpha) \\
+		& P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ P|Q \stackrel{\alpha}{\longrightarrow} P'|Q \\
+		& P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ P + Q\stackrel{\alpha}{\longrightarrow} P' \\
+		& P \stackrel{\alpha}{\longrightarrow} P' ~~ \Rightarrow ~~ Q + P\stackrel{\alpha}{\longrightarrow} P' \\ \label{eq:19}
+		& P \stackrel{\tau}{\longrightarrow} \eth  (P)
+	\end{align}
+	\caption{Semântica da LTL.
+		\label{fig:ltl_sema}}
+\end{figure}
+\FloatBarrier
+
 
 

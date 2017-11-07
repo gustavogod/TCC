@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.17)  7 NOV 2017 14:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.17)  7 NOV 2017 19:14
 entering extended mode
 **./projeto_gustavo.tex
 (projeto_gustavo.tex
@@ -1655,51 +1655,46 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 78.
 
-LaTeX Warning: Citation `reo' on page 8 undefined on input line 64.
-
-
-LaTeX Warning: Citation `promela' on page 8 undefined on input line 64.
-
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 79.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 79.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 78.
  [8])
 (textual/fundamenta.tex [9] [10
 
 ]
-<imagens/iot_diagram.png, id=209, 884.30376pt x 783.92876pt>
+<imagens/iot_diagram.png, id=207, 884.30376pt x 783.92876pt>
 File: imagens/iot_diagram.png Graphic file (type png)
 
 <use imagens/iot_diagram.png>
 Package pdftex.def Info: imagens/iot_diagram.png used on input line 26.
 (pdftex.def)             Requested size: 455.0pt x 403.36299pt.
  [11]
-<imagens/iot_vision.png, id=222, 573.14125pt x 292.09125pt>
+<imagens/iot_vision.png, id=220, 573.14125pt x 292.09125pt>
 File: imagens/iot_vision.png Graphic file (type png)
 
 <use imagens/iot_vision.png>
 Package pdftex.def Info: imagens/iot_vision.png used on input line 40.
 (pdftex.def)             Requested size: 318.49861pt x 162.31757pt.
  [12 <./imagens/iot_diagram.png>] [13 <./imagens/iot_vision.png>] <imagens/iot_
-fields.png, id=245, 555.07375pt x 344.28625pt>
+fields.png, id=243, 555.07375pt x 344.28625pt>
 File: imagens/iot_fields.png Graphic file (type png)
 
 <use imagens/iot_fields.png>
 Package pdftex.def Info: imagens/iot_fields.png used on input line 63.
 (pdftex.def)             Requested size: 409.49722pt x 253.99557pt.
  [14 <./imagens/iot_fields.png>]
-<imagens/iot_protocols.png, id=257, 502.87875pt x 312.16624pt>
+<imagens/iot_protocols.png, id=255, 502.87875pt x 312.16624pt>
 File: imagens/iot_protocols.png Graphic file (type png)
 
 <use imagens/iot_protocols.png>
 Package pdftex.def Info: imagens/iot_protocols.png used on input line 79.
 (pdftex.def)             Requested size: 318.49861pt x 197.70892pt.
  [15 <./imagens/iot_protocols.png>]
-<imagens/cliente_servidor.png, id=279, 531.9875pt x 132.495pt>
+<imagens/cliente_servidor.png, id=277, 531.9875pt x 132.495pt>
 File: imagens/cliente_servidor.png Graphic file (type png)
 
 <use imagens/cliente_servidor.png>
@@ -1711,7 +1706,7 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 126.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [17 <./imagens/cliente_servidor.png>] <imagens/coap_arq.png, id=299, 606.265p
+) [17 <./imagens/cliente_servidor.png>] <imagens/coap_arq.png, id=297, 606.265p
 t x 442.65375pt>
 File: imagens/coap_arq.png Graphic file (type png)
 
@@ -1719,7 +1714,7 @@ File: imagens/coap_arq.png Graphic file (type png)
 Package pdftex.def Info: imagens/coap_arq.png used on input line 147.
 (pdftex.def)             Requested size: 364.00139pt x 265.7699pt.
 
-<imagens/coap_header.png, id=307, 525.46312pt x 94.85437pt>
+<imagens/coap_header.png, id=305, 525.46312pt x 94.85437pt>
 File: imagens/coap_header.png Graphic file (type png)
 
 <use imagens/coap_header.png>
@@ -1734,28 +1729,28 @@ Overfull \hbox (24.71997pt too wide) in paragraph at lines 250--251
 T1/lmr/m/n/12 e uti-li-zando a es-tra-té-gia pu-bli-ca-ção/assinatura
  []
 
-[20] <imagens/mqtt_broker.png, id=342, 604.2575pt x 263.98625pt>
+[20] <imagens/mqtt_broker.png, id=340, 604.2575pt x 263.98625pt>
 File: imagens/mqtt_broker.png Graphic file (type png)
 
 <use imagens/mqtt_broker.png>
 Package pdftex.def Info: imagens/mqtt_broker.png used on input line 266.
 (pdftex.def)             Requested size: 364.00139pt x 159.02538pt.
  [21 <./imagens/mqtt_broker.png>]
-<imagens/mqtt_format.png, id=353, 493.0922pt x 48.18pt>
+<imagens/mqtt_format.png, id=351, 493.0922pt x 48.18pt>
 File: imagens/mqtt_format.png Graphic file (type png)
 
 <use imagens/mqtt_format.png>
 Package pdftex.def Info: imagens/mqtt_format.png used on input line 286.
 (pdftex.def)             Requested size: 364.00139pt x 35.56807pt.
 
-<imagens/mqtt_pacFormat.png, id=357, 443.40656pt x 63.23625pt>
+<imagens/mqtt_pacFormat.png, id=355, 443.40656pt x 63.23625pt>
 File: imagens/mqtt_pacFormat.png Graphic file (type png)
 
 <use imagens/mqtt_pacFormat.png>
 Package pdftex.def Info: imagens/mqtt_pacFormat.png used on input line 296.
 (pdftex.def)             Requested size: 364.00139pt x 51.91484pt.
  [22 <./imagens/mqtt_format.png> <./imagens/mqtt_pacFormat.png>]
-<imagens/mqtt_pubFormat.png, id=369, 443.40656pt x 63.98906pt>
+<imagens/mqtt_pubFormat.png, id=367, 443.40656pt x 63.98906pt>
 File: imagens/mqtt_pubFormat.png Graphic file (type png)
 
 <use imagens/mqtt_pubFormat.png>
@@ -1767,244 +1762,56 @@ Overfull \hbox (44.26758pt too wide) in paragraph at lines 331--368
  []
 
 [23 <./imagens/mqtt_pubFormat.png>]
-<imagens/mqtt_qos0.png, id=385, 438.8897pt x 104.64093pt>
+<imagens/mqtt_qos0.png, id=383, 438.8897pt x 104.64093pt>
 File: imagens/mqtt_qos0.png Graphic file (type png)
 
 <use imagens/mqtt_qos0.png>
 Package pdftex.def Info: imagens/mqtt_qos0.png used on input line 391.
 (pdftex.def)             Requested size: 409.49722pt x 97.63597pt.
  [24 <./imagens/mqtt_qos0.png>]
-<imagens/mqtt_qos1.png, id=397, 438.13687pt x 152.06813pt>
+<imagens/mqtt_qos1.png, id=395, 438.13687pt x 152.06813pt>
 File: imagens/mqtt_qos1.png Graphic file (type png)
 
 <use imagens/mqtt_qos1.png>
 Package pdftex.def Info: imagens/mqtt_qos1.png used on input line 418.
 (pdftex.def)             Requested size: 409.49722pt x 142.1296pt.
  [25 <./imagens/mqtt_qos1.png>]
-<imagens/mqtt_qos2.png, id=408, 438.13687pt x 477.28313pt>
+<imagens/mqtt_qos2.png, id=406, 438.13687pt x 477.28313pt>
 File: imagens/mqtt_qos2.png Graphic file (type png)
 
 <use imagens/mqtt_qos2.png>
 Package pdftex.def Info: imagens/mqtt_qos2.png used on input line 450.
 (pdftex.def)             Requested size: 409.49722pt x 446.08995pt.
  [26] [27 <./imagens/mqtt_qos2.png>]
-<imagens/tabela_protocolos.png, id=425, 477.28313pt x 328.97906pt>
+<imagens/tabela_protocolos.png, id=423, 477.28313pt x 328.97906pt>
 File: imagens/tabela_protocolos.png Graphic file (type png)
 
 <use imagens/tabela_protocolos.png>
 Package pdftex.def Info: imagens/tabela_protocolos.png used on input line 468.
 (pdftex.def)             Requested size: 455.0pt x 313.61763pt.
 
-
-LaTeX Warning: Citation `xmpp2011extensiblem' on page 28 undefined on input lin
-e 478.
-
-
-LaTeX Warning: Citation `mura2016' on page 28 undefined on input line 484.
-
-
-LaTeX Warning: Citation `miranda2008teoria' on page 28 undefined on input line 
-484.
-
-
-LaTeX Warning: Citation `mura2016' on page 28 undefined on input line 484.
-
-
-LaTeX Warning: Citation `miranda2008teoria' on page 28 undefined on input line 
-484.
-
-
-LaTeX Warning: Citation `gomes2007contratos' on page 28 undefined on input line
- 484.
-
-
 Underfull \vbox (badness 1953) has occurred while \output is active []
 
- [28 <./imagens/tabela_protocolos.png>]
-
-LaTeX Warning: Citation `miranda2008teoria' on page 29 undefined on input line 
-486.
-
-
-LaTeX Warning: Citation `ausin2005logica' on page 29 undefined on input line 48
-8.
-
-
-LaTeX Warning: Citation `bobbio1999teoria' on page 29 undefined on input line 4
-88.
-
-
-LaTeX Warning: Citation `ausin2005logica' on page 29 undefined on input line 48
-8.
-
-
-LaTeX Warning: Citation `xu2004monitoring' on page 29 undefined on input line 4
-94.
-
-
-LaTeX Warning: Citation `xu2004monitoring' on page 29 undefined on input line 4
-96.
-
-
-LaTeX Warning: Citation `mura2016' on page 29 undefined on input line 496.
-
-[29]
-
-LaTeX Warning: Citation `mura2016' on page 30 undefined on input line 498.
-
-
-LaTeX Warning: Citation `angelov2001b2b' on page 30 undefined on input line 502
-.
-
-
-LaTeX Warning: Citation `mura2016' on page 30 undefined on input line 504.
-
-
-LaTeX Warning: Citation `xu2004multi' on page 30 undefined on input line 506.
-
-
-LaTeX Warning: Citation `mura2016' on page 30 undefined on input line 506.
-
-
-LaTeX Warning: Citation `fenech2008conflict' on page 30 undefined on input line
- 510.
-
-
-LaTeX Warning: Citation `bosse2008automated' on page 30 undefined on input line
- 513.
-
-
-LaTeX Warning: Citation `xu2004monitoring' on page 30 undefined on input line 5
-14.
-
-
-LaTeX Warning: Citation `bobbio1999teoria' on page 30 undefined on input line 5
-14.
-
-[30]
-
-LaTeX Warning: Citation `chadha2006formal' on page 31 undefined on input line 5
-15.
-
-
-LaTeX Warning: Citation `kordy2012constructing' on page 31 undefined on input l
-ine 515.
-
-
-LaTeX Warning: Citation `xu2004monitoring' on page 31 undefined on input line 5
-16.
-
-
-LaTeX Warning: Citation `xu2004monitoring' on page 31 undefined on input line 5
-16.
-
-
-LaTeX Warning: Citation `fenech2008conflict' on page 31 undefined on input line
- 521.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 31 undefined on input line
- 525.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 31 undefined on input line
- 525.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 31 undefined on input line
- 527.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 31 undefined on input line
- 527.
-
-[31]
-
-LaTeX Warning: Citation `souza2017logica' on page 32 undefined on input line 52
-9.
-
-
-LaTeX Warning: Citation `abe2002introduccao' on page 32 undefined on input line
- 541.
-
-
-LaTeX Warning: Citation `abe2002introduccao' on page 32 undefined on input line
- 541.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 32 undefined on input line
- 560.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 32 undefined on input line
- 562.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 32 undefined on input line
- 564.
-
-
-LaTeX Warning: Citation `abe2002introduccao' on page 32 undefined on input line
- 564.
-
-[32]
-
-LaTeX Warning: Citation `bedregal2002logica' on page 33 undefined on input line
- 574.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 33 undefined on input line
- 574.
-
-
-LaTeX Warning: Citation `bedregal2002logica' on page 33 undefined on input line
- 576.
-
-[33] <imagens/ex_arvore.png, id=469, 275.0275pt x 211.79124pt>
+ [28 <./imagens/tabela_protocolos.png>] [29] [30] [31] [32] [33]
+<imagens/ex_arvore.png, id=524, 275.0275pt x 211.79124pt>
 File: imagens/ex_arvore.png Graphic file (type png)
 
 <use imagens/ex_arvore.png>
 Package pdftex.def Info: imagens/ex_arvore.png used on input line 612.
 (pdftex.def)             Requested size: 181.99722pt x 140.15428pt.
+ [34 <./imagens/ex_arvore.png>]
 
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
 
-LaTeX Warning: Citation `smullyan1995first' on page 34 undefined on input line 
-637.
-
-
-LaTeX Warning: Citation `chellas1980modal' on page 34 undefined on input line 6
-37.
-
-
-LaTeX Warning: Citation `pnueli1977temporal' on page 34 undefined on input line
- 637.
-
-
-LaTeX Warning: Citation `kripke1959completeness' on page 34 undefined on input 
-line 641.
-
-[34 <./imagens/ex_arvore.png>]
-! Undefined control sequence.
-<argument> ...d E[\varphi U \varphi ] \numberthis 
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
 l.676 \end{align*}
                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...d E[\varphi U \varphi ] \numberthis 
-                                                  
-l.676 \end{align*}
-                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2012,67 +1819,67 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [36]
 [37]
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 753.
+LaTeX Warning: Command \' invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 753.
+LaTeX Warning: Command \c invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 753.
+LaTeX Warning: Command \~ invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 753.
+LaTeX Warning: Command \' invalid in math mode on input line 754.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 771.
+LaTeX Warning: Command \~ invalid in math mode on input line 772.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 771.
+LaTeX Warning: Command \c invalid in math mode on input line 772.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 771.
+LaTeX Warning: Command \~ invalid in math mode on input line 772.
 
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
@@ -2082,7 +1889,7 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.783 \end{align*}
+l.784 \end{align*}
                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2096,7 +1903,7 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.850 \end{align*}
+l.851 \end{align*}
                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2109,7 +1916,7 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.857 \end{align*}
+l.858 \end{align*}
                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2117,32 +1924,36 @@ If that doesn't work, type  X <return>  to quit.
 [39]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 883.
+(hyperref)                removing `math shift' on input line 884.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\pi' on input line 883.
+(hyperref)                removing `\pi' on input line 884.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 883.
+(hyperref)                removing `math shift' on input line 884.
 
 [40]
 
-LaTeX Warning: Reference `fig:pi_semant' on page 41 undefined on input line 930
+LaTeX Warning: Reference `fig:pi_semant' on page 41 undefined on input line 931
 .
 
-[41] <imagens/calc_pi_ex.png, id=558, 485.815pt x 171.64125pt>
+[41] <imagens/calc_pi_ex.png, id=648, 485.815pt x 171.64125pt>
 File: imagens/calc_pi_ex.png Graphic file (type png)
 
 <use imagens/calc_pi_ex.png>
-Package pdftex.def Info: imagens/calc_pi_ex.png used on input line 976.
+Package pdftex.def Info: imagens/calc_pi_ex.png used on input line 977.
 (pdftex.def)             Requested size: 364.00139pt x 128.60226pt.
  [42 <./imagens/calc_pi_ex.png>]
+
+LaTeX Warning: Reference `tab:tpi_sos' on page 43 undefined on input line 1004.
+
+
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1012 \begin{cases}
+l.1013 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2150,7 +1961,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1021 \end{cases}
+l.1022 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2159,10 +1970,16 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1030.
+LaTeX Warning: Command \' invalid in math mode on input line 1037.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1030.
+LaTeX Warning: Command \' invalid in math mode on input line 1037.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1037.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1037.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2212,9 +2029,9 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[51] [52]) 
+[51] [52] [53]) 
 AED: lastpage setting LastPage
-[53]
+[54]
 \tf@toc=\write6
 \openout6 = `projeto_gustavo.toc'.
 
@@ -2233,36 +2050,35 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
  ) 
 Here is how much of TeX's memory you used:
- 25010 strings out of 493323
- 447383 string characters out of 3139042
- 674391 words of memory out of 3000000
- 27772 multiletter control sequences out of 15000+200000
+ 25172 strings out of 493323
+ 450526 string characters out of 3139042
+ 680969 words of memory out of 3000000
+ 27849 multiletter control sequences out of 15000+200000
  81813 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,18n,69p,1132b,878s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy
-.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program 
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmbx6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx8.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbxi10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
-mi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/lm/lmri8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on projeto_gustavo.pdf (55 pages, 923705 bytes).
+c/lm/lmbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbxi10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/lm/lmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+mi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on projeto_gustavo.pdf (56 pages, 927324 bytes).
 PDF statistics:
- 918 PDF objects out of 1000 (max. 8388607)
- 222 named destinations out of 1000 (max. 500000)
+ 1065 PDF objects out of 1200 (max. 8388607)
+ 307 named destinations out of 1000 (max. 500000)
  403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

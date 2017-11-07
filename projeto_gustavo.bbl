@@ -109,12 +109,6 @@ Dispon{\'\i}vel em:
   1999.
 ISBN 9780262032704.}
 
-\bibitem{zenith1990linda}
-\abntrefinfo{Zenith}{ZENITH}{1990}
-{ZENITH, S.~E. Linda coordination language; subsystem kernel architecture (on
-  transputers).
-\emph{RR-794, Yale University, New Haven, CT (May 1990)}, v.~31, 1990.}
-
 \bibitem{mayer2009security}
 \abntrefinfo{Mayer}{MAYER}{2009}
 {MAYER, C.~P. Security and privacy challenges in the internet of things.
@@ -166,6 +160,116 @@ Object Manage Group (OMG), 2015.}
 \abntrefinfo{Godfrey, Ingham e Schloming}{GODFREY; INGHAM; SCHLOMING}{2012}
 {GODFREY, R.; INGHAM, D.; SCHLOMING, R. \emph{Advanced Message Queuing Protocol
   (AMQP) Version 1.0}. [S.l.]: OASIS Standard, 2012.}
+
+\bibitem{xmpp2011extensible}
+\abntrefinfo{Saint-Andre}{SAINT-ANDRE}{2011}
+{SAINT-ANDRE, P. Extensible messaging and presence protocol (xmpp): Core.
+2011.}
+
+\bibitem{mura2016}
+\abntrefinfo{Mura}{MURA}{2016}
+{MURA, W.~A. D.
+\emph{Conflict detection on multiparty contracts}.
+133~p. Disserta\c{c}\~{a}o (Mestrado) --- State University of Londrina,
+  Londrina-PR, 2016.}
+
+\bibitem{miranda2008teoria}
+\abntrefinfo{Miranda}{MIRANDA}{2008}
+{MIRANDA, M.~B. Teoria geral dos contratos.
+\emph{Revista Virtual Direito Brasil}, v.~2, n.~2, p.~15, 2008.}
+
+\bibitem{gomes2007contratos}
+\abntrefinfo{GOMES}{GOMES}{2007}
+{GOMES, O. Contratos. atual. por antonio junqueira de azevedo e francisco paulo
+  de crescenzo marino.
+\emph{Rio de janeiro: Forense}, p.~10, 2007.}
+
+\bibitem{ausin2005logica}
+\abntrefinfo{Aus{\'\i}n}{AUS{\'I}N}{2005}
+{AUS{\'I}N, T. \emph{Entre la l{\'o}gica y el derecho}. Barcelona: Plaza y
+  Vald{\'e}s, 2005. v.~1.}
+
+\bibitem{bobbio1999teoria}
+\abntrefinfo{Bobbio e Cicco}{BOBBIO; CICCO}{1995}
+{BOBBIO, N.; CICCO, C. D. \emph{Teoria do ordenamento jur{\'\i}dico}. 6rd. ed.
+  [S.l.]: UnB, 1995. 105--109~p.}
+
+\bibitem{xu2004monitoring}
+\abntrefinfo{Xu}{XU}{2004}
+{XU, L. \emph{Monitoring multi-party contracts for e-business}. [S.l.]: Paul de
+  Vrieze, 2004.}
+
+\bibitem{angelov2001b2b}
+\abntrefinfo{Angelov e Grefen}{ANGELOV; GREFEN}{2001}
+{ANGELOV, S.; GREFEN, P. B2b econtract handling-a survey of projects, papers
+  and standards.
+University of Twente, Centre for Telematics and Information Technology, 2001.}
+
+\bibitem{xu2004multi}
+\abntrefinfo{Xu}{XU}{2004}
+{XU, L. A multi-party contract model.
+\emph{ACM SIGecom Exchanges}, ACM, v.~5, n.~1, p. 13--23, 2004.}
+
+\bibitem{fenech2008conflict}
+\abntrefinfo{Fenech, Pace e Schneider}{FENECH; PACE; SCHNEIDER}{2008}
+{FENECH, S.; PACE, G.~J.; SCHNEIDER, G. Conflict analysis of deontic contracts.
+\emph{NWPT}, v.~8, 2008.}
+
+\bibitem{bosse2008automated}
+\abntrefinfo{Bosse et al.}{BOSSE et al.}{2008}
+{BOSSE, T. et al. Automated formal analysis of human multi-issue negotiation
+  processes.
+\emph{Multiagent and Grid Systems}, IOS Press, v.~4, n.~2, p. 213--233, 2008.}
+
+\bibitem{chadha2006formal}
+\abntrefinfo{Chadha, Kremer e Scedrov}{CHADHA; KREMER; SCEDROV}{2006}
+{CHADHA, R.; KREMER, S.; SCEDROV, A. Formal analysis of multiparty contract
+  signing.
+\emph{Journal of Automated Reasoning}, Springer, v.~36, n.~1-2, p. 39--83,
+  2006.}
+
+\bibitem{kordy2012constructing}
+\abntrefinfo{Kordy e Radomirovic}{KORDY; RADOMIROVIC}{2012}
+{KORDY, B.; RADOMIROVIC, S. Constructing optimistic multi-party contract
+  signing protocols. In:  IEEE. \emph{Computer Security Foundations Symposium
+  (CSF), 2012 IEEE 25th}. [S.l.], 2012. p. 215--229.}
+
+\bibitem{bedregal2002logica}
+\abntrefinfo{Bedregal e Aci{\'o}ly}{BEDREGAL; ACI{\'O}LY}{2002}
+{BEDREGAL, B.; ACI{\'O}LY, B. L{\'o}gica para a ci{\^e}ncia da
+  computa{\c{c}}{\~a}o.
+\emph{Vers{\~a}o Preliminar, Natal, RN}, 2002.}
+
+\bibitem{souza2017logica}
+\abntrefinfo{Souza}{SOUZA}{2017}
+{SOUZA, J. \emph{L{\'o}gica para ci{\^e}ncia da computa{\c{c}}{\~a}o}. 3rd. ed.
+  [S.l.]: Elsevier Brasil, 2017.}
+
+\bibitem{abe2002introduccao}
+\abntrefinfo{Abe, Scalzitti e Filho}{ABE; SCALZITTI; FILHO}{2001}
+{ABE, J.~M.; SCALZITTI, A.; FILHO, J. Inácio~da S. \emph{Introdu{\c{c}}{\~a}o
+  {\`a} L{\'o}gica para a Ci{\^e}ncia da Computa{\c{c}}{\~a}o}. [S.l.]: Arte \&
+  Ci{\^e}ncia, 2001.}
+
+\bibitem{smullyan1995first}
+\abntrefinfo{Smullyan}{SMULLYAN}{1995}
+{SMULLYAN, R.~M. \emph{First-order logic}. [S.l.]: Courier Corporation, 1995.}
+
+\bibitem{chellas1980modal}
+\abntrefinfo{Chellas}{CHELLAS}{1980}
+{CHELLAS, B.~F. \emph{Modal logic: an introduction}. [S.l.]: Cambridge
+  university press, 1980.}
+
+\bibitem{pnueli1977temporal}
+\abntrefinfo{Pnueli}{PNUELI}{1977}
+{PNUELI, A. The temporal logic of programs. In:  IEEE. \emph{Foundations of
+  Computer Science, 1977., 18th Annual Symposium on}. [S.l.], 1977. p. 46--57.}
+
+\bibitem{kripke1959completeness}
+\abntrefinfo{Kripke}{KRIPKE}{1959}
+{KRIPKE, S.~A. A completeness theorem in modal logic.
+\emph{The journal of symbolic logic}, Cambridge University Press, v.~24, n.~1,
+  p. 1--14, 1959.}
 
 \bibitem{baeten2005brief}
 \abntrefinfo{Baeten}{BAETEN}{2005}
