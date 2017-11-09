@@ -1,5 +1,7 @@
 \chapter{Fundamentação Teórica}\label{capitulo:fundamentacao}
 
+Este capítulo apresenta alguns conceitos envolvendo IoT, como suas características, tecnologias envolvidas, poder de mercado e aplicações. A comunicação em IoT é discutida mais profundamente e os principais protocolos de comunicação são descritos e discutidos, em especial o MQTT, foco de pesquisa deste trabalho. Algumas representações para contratos eletrônicos, sistemas e processos concorrentes também são descritas, fornecendo um conjunto de conceitos necessários para a solução dos problemas propostos neste trabalho.
+
 \section{Internet das Coisas}
 
 Com o popularização das tecnologias de comunicação (\textit{Wi-Fi, \textit{Bluetooth}, 3G/4G, etc}), dos dispositivos conectados a \textit{internet}, juntamente com a difusão do IPv6, uma série de aplicações e tecnologias passam a ser exploradas.
@@ -100,7 +102,7 @@ O protocolo HTTP é utilizado na camada de aplicação para receber e enviar inf
 
 Utilizado em sistemas de informação de hipermídia, distribuídos e colaborativos, o HTTP prove comunicação por meio da troca ou transferência de hipertexto, que é um texto estruturado que utiliza ligações lógicas (\textit{hiperlinks}) entre nós contendo texto~\cite{fielding2014hypertext}.
 
-A comunicação entre o cliente e o servidor é feita mediante a  mensagens. O cliente envia uma mensagem de requisição de um determinado recurso ao servidor, que recebe e requisição e enviar uma resposta. As mensagens possuem cabeçalho e corpo, além de um método, no caso das mensagens de requisição~\cite{fielding2014hypertext}. Os principais métodos são listados abaixo:
+A comunicação entre o cliente e o servidor é feita mediante a  mensagens, que são codificadas por meio da linguagem de marcação HTML~\cite{raggett1999html}. O cliente envia uma mensagem de requisição de um determinado recurso ao servidor, que recebe e requisição e enviar uma resposta, como ilustrado na Figura~\ref{fig:req/res}. As mensagens possuem cabeçalho e corpo, além de um método, no caso das mensagens de requisição~\cite{fielding2014hypertext}. Os principais métodos são listados abaixo:
 \begin{itemize}
     \item \textbf{GET:} Solicita a exibição de um recurso;
     \item \textbf{POST:} Envia informações do corpo da requisição que serão utilizadas para criar um novo recurso;
@@ -116,6 +118,26 @@ A comunicação entre o cliente e o servidor é feita mediante a  mensagens. O c
 \label{fig:req/res}}
 \end{figure}
 \FloatBarrier
+
+O cabeçalho da mensagem HTTP é usado para transmitir mensagens adicionais entre o cliente e o servidor. Ele é especificado imediatamente após a linha inicial da transação que contêm o método, tanto para a requisição do cliente quanto para a resposta do servidor. Existem quatro tipos de cabeçalhos que podem ser incluídos nas mensagens~\cite{fielding2014hypertext}, os quais são:
+\begin{itemize}
+	\item \textbf{\textit{General-header}}: Utilizado para enviar informações adicionais sobre a mensagem transmitida;
+	\item \textbf{\textit{Request-header}}: Presente em mensagens de requisição, permite ao cliente transmitir informações adicionais relacionadas à requisição, ao próprio cliente ou ao servidor;
+	\item \textbf{\textit{Entity-header}}: Pode estar presente tanto em uma requisição quanto numa resposta. Usado para definir meta-dados sobre o corpo da mensagem, como tamanho, tipo e linguagem. Quando não há corpo na mensagem, os meta-dados referem-se aos recursos identificados pela requisição.
+	\item \textbf{\textit{Response-header}}: Utilizado para transmitir informações adicionais da resposta. As informações podem estar relacionadas com o servidor ou sobre acesso adicional ao recurso identificado pelo \textit{Request}-URI.  
+\end{itemize}
+
+Uma mensagem mensagem HTTP pode conter um corpo de dados que são inseridos abaixo das linhas de cabeçalho.Em uma mensagem de resposta, o corpo da mensagem é o recurso que foi requisitado pelo cliente, ou ainda uma mensagem de erro, caso este recurso não seja possível. Já em uma mensagem de requisição, o corpo pode conter dados que serão enviados diretamente pelo usuário ou um arquivo que será enviado para o servidor~\cite{fielding2014hypertext}.
+
+A Figura~\ref{fig:http_ex} apresenta um exemplo de requisição e resposta HTTP. À esquerda, é apresentado uma requisição, em que a primeira linha contêm o método da requisição (POST), a URI ("\textit{/servlet/default.jsp}") e a versão do protocolo ("\textit{HTTP/1.1}"). A linha de requisição é seguida por uma série de informações adicionais do cabeçalho, e por fim, na última linha, a informação "\textit{LastName=Magalhaes\&FirstName=Guilherme}" pertence ao corpo da mensagem. No exemplo de resposta HTTP, localizado à direita, a primeira linha armazena o status do protocolo~\cite{fielding2014hypertext}, com informações acerca da versão do protocolo ("HTTP/1.1"), o status do código ("\textit{200}" = bem sucedido) e uma \textit{Reason-Phrase}~\cite{fielding2014hypertext} ("\textit{OK}") que indica uma breve descrição textual sobre o status do código. Posterior a linha de status tem-se as informações do cabeçalho, que é semelhante as da requisição. Afinal, o corpo da resposta é o conteúdo HTML da própria resposta. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{imagens/ex_http.png}
+	\caption{Exemplo de requisição e resposta HTTP.
+		\label{fig:http_ex}}
+\end{figure}
+\FloatBarrier 
 
 \subsection{CoAP}\label{sec:coap}
 
@@ -638,43 +660,144 @@ A lógica proposicional é considerada um dos tipos mais simples de calculo lóg
    
 \subsection{Lógica temporal}
 
-A lógica temporal é um formalismo usado para descrever sequências de transações entre estados em sistemas reativos~\cite{clarke1999model}. Portanto, uma fórmula lógica temporal geralmente é avaliada sobre um sistema de transição que modela uma especificação~\cite{clarke1999model}, isto é, um modelo de \textit{Kripke}~\cite{kripke1959completeness}. 
+A lógica temporal é um formalismo usado para descrever sequências de transações entre estados em sistemas reativos~\cite{clarke1999model}. Portanto, uma fórmula lógica temporal geralmente é avaliada sobre um sistema de transição que modela uma especificação~\cite{clarke1999model}, isto é, um modelo de \textit{Kripke}~\cite{kripke1959completeness}.
+
+Na lógica temporal, o modelo é dado pela tupla $\mathcal{M} = (S, \rightarrow, L)$, em que $S$ é o conjunto de estados, $\rightarrow$ (ou $R$) $ \in S \times S$ é a relação de transição e $L \colon S \rightarrow 2^{AP}$ denota a função de rotulação dos estados com as proposições atômicas $AP$ verdadeiras no estado em que se encontram. 
+
+Um exemplo de sistema de transição é apresentado na Figura~\ref{fig:temporal_grafo}, definido por:
+\begin{itemize}
+	\item $AP = \{p,q,r\}$
+	\item $S = \{s_{0}, s_{1}, s_{2}\}$
+	\item $\rightarrow = \{(s_{0}, s_{1}), (s_{1}, s_{0}), (s_{0}, s_{2}), (s_{1}, s_{2}), (s_{2}, s_{2})\}$
+	\item $L(s_{0}) = \{p,q\}, L(s_{1}) = \{q, r\}, L(s_{2}) = \{r\}$
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+\begin{tikzpicture}[>={Stealth[width=6pt,length=9pt]}, accepting/.style={double distance = 2pt, outer sep = 1pt + \pgflinewidth}, shorten >=1pt, auto]
+\draw (158.0pt, -70.0pt)node[state, label=right:$s_{0}$](0){$p,q$};
+\draw (80.0pt, -171.0pt)node[state, label=below:$s_{1}$](1){$q,r$};
+\draw (220.0pt, -171.0pt)node[state, label=right:$s_{2}$](2){$r$};
+\path[->] (2) edge[loop below] node{}(2);
+\path[->] (1) edge node{}(2);
+\path[->] (0) edge node{}(2);
+\path[->] (1) edge[bend left] node{}(0);
+\path[->] (0) edge[bend left] node{}(1);
+\end{tikzpicture}
+\caption{Exemplo de um sistema de transição~\cite{huth2004logic}.
+	\label{fig:temporal_grafo}}
+\end{figure}
+\FloatBarrier
+
+Uma fórmula lógica temporal pode ser verdadeira ou falsa dependendo do modelo no qual é interpretada. O conjunto de estados representam a evolução do sistema ao longo do tempo e as fórmulas são avaliadas em cada estado do sistema. Portanto, a noção estática de verdade é substituída pela noção dinâmica de evolução dos estados do sistema ao longo do tempo~\cite{clarke1999model}.
+
+A lógica temporal pode ser dos tipos linear ou ramificada. Na abordagem linear, o tempo é tratado como se cada momento tivesse apenas um único futuro possível, logo, as fórmulas são interpretadas como sequências lineares, ou caminhos. Já na abordagem ramificada, cada estado pode evoluir para uma ramificação de vários futuros possíveis, de acordo com a evolução do sistema, com uma representação em árvore~\cite{mura2016}.
 
 \subsubsection{Lógica temporal linear}
 
+Como dito acima, uma lógica temporal compreende a evolução de um sistema de transição de estados ao longo do tempo. Diante disso, a lógica temporal linear (ou LTL) possui conectivos que se referem ao futuro, e suas fórmulas são interpretadas sobre uma sequência de estados chamada de \textit{path} (caminho). Um \textit{path} é uma sequência finita não vazia denotada por $\pi = \langle \pi_{0}, \pi_{1}, \ldots, \pi_{n-1} \rangle$, em que os estados $\pi_{0}, \pi_{1}, \ldots, \pi_{n-1} \in S$ e $(\pi_{i}, \pi_{i-1}) \in R$ para todo $0 \leq i < n-1$. O tamanho de um \textit{path} é denotado por $|\pi|=\infty$. Um \textit{path} infinito é denotado por $\pi = \langle \pi_{0}, \pi_{1}, \pi_{3}, \ldots \rangle$ com tamanho $|\pi| = \infty$. Todo \textit{path} que não pode ser estendido é considerado maximal, logo, qualquer \textit{path} infinito é maximal~\cite{muller1999invited}.
+
+A sintaxe de uma fórmula LTL é composta de proposições atômicas e gerada conforme segue:
 \begin{equation}
 \varphi ::= \top~|~\bot~|~p~|~\neg \varphi~|~\varphi \vee \varphi~|~\varphi \rightarrow \varphi~|~X\varphi~|~F\varphi~|~G\varphi~|~\varphi U \varphi'
 \end{equation}
 
+Assim como na lógica proposicional, os valores lógicos avaliados como verdadeiro e falso são representados pelos símbolos $\top$ e $\bot$, respectivamente, além dos operadores lógicos $\neg$, $wedge$, $\vee$ e $\rightarrow$, que também têm o mesmo significado. Já o símbolo $p$ representa um identificador das proposições, e os operadores $X$, $F$, $G$ e $U$, são usados para especificar situações temporais de uma fórmula. A expressão $X\varphi$ (após $\varphi$) indica que a proposição $\varphi$ é verdadeira no próximo estado. Já a expressão $F\varphi$ (afinal, $\varphi$) configura que em algum estado futuro da computação, $\varphi$ é verdadeira, enquanto que $G\varphi$ (sempre $\varphi$) indica que $\varphi$ é verdadeira em todos os estados do caminho de computação. Enfim, a expressão $\varphi U \varphi'$ ($\varphi$ até que $\varphi'$) significa que a proposição $\varphi$ deve ser verdadeira em todos os estados até que $\varphi$ seja verdadeira~\cite{mura2016, muller1999invited}. 
+
+Uma fórmula $\alpha$ em LTL é satisfeita se existe um modelo $M$ e um \textit{path} $\pi$ tal que $\mathcal{M}, \pi \models \varphi$, ou seja, um modelo no qual o \textit{path} $\pi$ satisfaz a fórmula $\varphi$. Um \textit{path} é formado por uma sequência de estados $s$ e suas posições são indexadas partindo de $\pi_{1}$ até $\pi_{n}$, em que $n$ a quantidade de posições de $\pi$. Sendo $\pi$ um dado \textit{path} de $\mathcal{M}$, as relações de satisfação $\models$ e $\nvDash$ indicam se uma fórmula LTL é satisfeita ou não, respectivamente, por $\pi$~\cite{huth2004logic}, como exposto a seguir: 
+
 \begin{figure}[ht]
 	\centering
 	\begin{align}
-	&\pi \models \top \\
-	&\pi \nvDash \bot \\
-	&\pi \models p \Longleftrightarrow p \in L(\pi_{1}) \\
-	&\pi \models \neg \varphi \iff \pi \not \models \varphi \\
-	&\pi \models \varphi \wedge \varphi' \iff \pi \models \varphi \mbox{ e } \pi \models \varphi' \\
-	&\pi \models \varphi \vee \varphi' \iff \pi \models \varphi \mbox{ ou } \pi \models \varphi' \\
-	&\pi \models \varphi \to \varphi' \iff \pi \models \varphi \mbox{ sempre que } \pi \models \varphi' \\
-	&\pi \models X\varphi \iff \pi_2 \models \varphi \\
-	&\pi \models G\varphi \iff \forall i \geq 1 \mid \pi_i \models \varphi \\
-	&\pi \models F\varphi \iff \exists i \geq 1 \mid \pi_i \models \varphi \\
-	&\pi \models \varphi U \varphi' \iff \exists i \geq 1 \mid \pi_i \models \varphi' \mbox{ e } \forall j = 1 \wedge j < i \mid \pi_j \models \varphi
+	&\pi \models \top \label{eq:l1} \\
+	&\pi \nvDash \bot \label{eq:l2} \\
+	&\pi \models p \Longleftrightarrow p \in L(\pi_{1}) \label{eq:l3} \\
+	&\pi \models \neg \varphi \iff \pi \not \models \varphi \label{eq:l4} \\
+	&\pi \models \varphi \wedge \varphi' \iff \pi \models \varphi \mbox{ e } \pi \models \varphi' \label{eq:l5}\\
+	&\pi \models \varphi \vee \varphi' \iff \pi \models \varphi \mbox{ ou } \pi \models \varphi' \label{eq:l6}\\
+	&\pi \models \varphi \to \varphi' \iff \pi \models \varphi \mbox{ sempre que } \pi \models \varphi' \label{eq:l7}\\
+	&\pi \models X\varphi \iff \pi_2 \models \varphi \label{eq:l8}\\
+	&\pi \models G\varphi \iff \forall i \geq 1 \mid \pi_i \models \varphi \label{eq:l9}\\
+	&\pi \models F\varphi \iff \exists i \geq 1 \mid \pi_i \models \varphi \label{eq:l10}\\
+	&\pi \models \varphi U \varphi' \iff \exists i \geq 1 \mid \pi_i \models \varphi' \mbox{ e } \forall j = 1 \wedge j < i \mid \pi_j \models \varphi \label{eq:l11}
 	\end{align}
 	\caption{Semântica da LTL.
 		\label{fig:ltl_sem}}
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Lógica linear ramificada}
+As definições~\ref{eq:l1} e~\ref{eq:l2} da Figura~\ref{fig:ltl_sem} indicam as proposições verdadeiras e falsas, respectivamente. Na definição~\ref{eq:l3} é dito que a proposição $p$ só é válida se estiver no primeiro estado do \textit{path}. Nas proposições~\ref{eq:l4} a~\ref{eq:l7} são definidos os conectivos proposicionais da lógica proposicional. Em~\ref{eq:l8}, o operador $X$ denota que a fórmula $\varphi$ é satisfeita no próximo estado, no caso, a segunda posição do \textit{path}. As definições~\ref{eq:l9} e~\ref{eq:l10} representam os operadores $G$ e $F$ que apontam, respectivamente, que a fórmula $\varphi$ é verdadeira em todas ou em pelo menos uma posição de $\pi$. Por fim, a definição~\ref{eq:l11} representa o operador $U$, expressando que, para toda posição antecessora à $\pi_{i}$, a fórmula $\varphi$ é verdadeira, caso contrato, a proposição $\varphi'$ é verdadeira.
 
-A sintaxe de construção de fórmulas CTL consiste em:
+Diversas propriedades relevantes podem ser verificadas com fórmulas LTL, tais como, de segurança, no qual o sistema é livre de \textit{deadlocks}, e de progresso, em que toda requisição realizada é atendida~\cite{mura2016, huth2004logic}. ~\citeauthor{huth2004logic} descreve algumas propriedades que podem ser representadas em sistemas reais, considerando um sistema especificado com as proposições $ocupado$, $requisitado$, $iniciado$, $pronto$ e $habilitado$, como nos exemplos a seguir:
+
+\begin{itemize}
+	\item o sistema não pode ter $iniciado$ e ainda não estar $pronto$ para atender requisições: 
+	\begin{equation}
+	G\neg(iniciado\wedge\neg\;pronto)
+	\end{equation} 
+	\item em todo sistema, se é $requisitado$ algum recurso, o requisitante deve ser $respondido$:
+	\begin{equation}
+	G(requisitado \to F\;respondido)
+	\end{equation}
+	\item um processo é $habilitado$ infinitas vezes em todo o caminho de computação: 
+	\begin{equation}
+	GF\;habilitado 
+	\end{equation}
+	\item um elevador subindo para o segundo andar não muda sua direção quando houver passageiros que desejam ir para o quinto andar: 
+	\begin{equation}
+	G(andar2 \wedge subindo \wedge pressionadoBotao5 \to (subindo U andar5))
+	\end{equation}
+\end{itemize}
+
+Os exemplos acima demonstram que a LTL é capaz de representar propriedades essenciais em sistemas de transição de estados. Porém, há propriedades que não podem ser expressadas em LTL, como as citadas abaixo:
+
+\begin{itemize}
+	\item Partindo de algum estado, é possível chegar em um estado dentre todos os caminhos possíveis que satisfaça a reinicialização do sistema?
+	\item A partir do estado que indica que o elevador está no terceiro andar parado e com as portas fechadas, é possível chegar num estado onde o elevador continue parado?
+\end{itemize}
+
+A LTL não é capaz de expressar os exemplos acima, pois não é possível afirmar a existência de outros caminhos possíveis, ou seja, de outros \textit{paths}~\cite{huth2004logic}.
+
+\subsubsection{Lógica temporal ramificada}
+
+A lógica temporal ramificada, ou lógica de computação em árvore (CTL), é capaz de representar sistemas de transições de estados em que o futuro não é determinado, ou seja, quando há uma variedade de possíveis caminhos que podem tomados a partir de um determinado estado. Sendo assim, a evolução do sistema ao longo do tempo pode ser representada por uma árvore, que representa todas as execuções possíveis~\cite{huth2004logic}.
+
+Na Figura~\ref{fig:ctl_ex}, à esquerda, é representado um modelo, e à direita, a árvore de computação e seus nós, representando o estado corrente e o nível de profundidade da execução, indicando as mudanças de estados.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.9\textwidth]{imagens/ctl_ex.png}
+	\caption{Exemplo de árvore de computação num sistema de transição~\cite{huth2004logic}.
+		\label{fig:ctl_ex}}
+\end{figure}
+\FloatBarrier
+
+A sintaxe de construção de fórmulas CTL estende a LTL e adiciona os operadores existencial ($E$) e universal ($A$) consiste em:
 \begin{equation}
 \begin{align*}
 & \varphi ::= \top \mid \perp \mid p \mid \neg \varphi \mid \varphi \wedge \varphi \mid \varphi\vee\varphi \mid \varphi \to \varphi \mid \\ 
 & AX\varphi \mid EX\varphi \mid AF\varphi \mid EF\varphi \mid AG\varphi \mid EG\varphi \mid A[\varphi U \varphi]\mid E[\varphi U \varphi]
 \end{align*}
 \end{equation} 
+
+Os conectivos temporais da CTL são usados em pares. O primeiro conectivo da fórmula é um quantificador, denotado por $A$ (inevitavelmente) ou $E$ (provavelmente), enquanto que o segundo é usado da mesma forma que na LTL. Os operadores temporais $E$ e $A$ expressam propriedades para algum ou todos os caminhos de computação que se iniciam em
+determinado estado~\cite{katoen1999concepts}. Alguns exemplos de fórmulas CTL são apresentados a seguir: 
+\begin{itemize}
+	\item é possível chegar a um estado em que o sistema está $iniciado$ mas não $pronto$? 
+	\begin{equation}
+	EF(iniciado \wedge \neg pronto)
+	\end{equation}
+	\item em qualquer caminho e em todo este caminho, se algum recurso é $requisitado$, ele eventualmente é $reconhecido$? 
+	\begin{equation}
+	AG(requisitado \to AF\;reconhecido)
+	\end{equation}
+	\item um determinado processo está $habilitado$ infinitamente em cada caminho de computação. 
+	\begin{equation}
+	AG(AF\;habilitado)
+	\end{equation}
+\end{itemize}
+
+Assim como na LTL, as fórmulas em CTL são interpretadas sobre os caminhos a partir de estados e um sistema de transição.~\cite{katoen1999concepts}. Cada \textit{path} é entendido como um caminho de estados possível no modelo, em que a raiz da árvore representa o estado inicial. Dado o modelo de transição $\mathcal{M} = (S, \rightarrow, L)$, a relação de satisfação $\mathcal{M}, s \models \equiv$ pode ser dada indutivamente conforme é exibido na Figura~\ref{fig:ctl_sem}, em que $s \in \mathcal{M}$ e $\varphi$ é uma fórmula em CTL~\cite{mura2016}.
 
 \begin{figure}[ht]
 	\centering
@@ -701,6 +824,16 @@ A sintaxe de construção de fórmulas CTL consiste em:
 		\label{fig:ctl_sem}}
 \end{figure}
 \FloatBarrier
+
+Na CTL, os quantificadores existencial e universal pode ser aninhados para expressar propriedades mais complexas. Por exemplo, uma propriedade em que para todo caminho de computação sempre é possível retornar para o estado inicial, pode ser representada por $AG~(EF~(inicio))$. Assim, interpreta-se que em todo estado do sistema ($G$), para todo caminho de computação ($A$), existe a possibilidade ($E$) de eventualmente retornar ao início ($F~inicio$)~\cite{baier2008principles}.
+
+Outro expressão que não pode ser descrita em LTL é apresentada como segue:
+\begin{itemize}
+	\item Um elevador pode permanecer parado no 3º andar com as portas fechadas?
+\end{itemize}
+\begin{align}
+& AG(andar3\wedge parado \wedge portaFechada \rightarrow EG(andar3 \wedge parado \wedge portaFechada))
+\end{align} 
 
 \section{Cálculo de Processos}
 

@@ -134,6 +134,11 @@ ISBN 9780128093474.}
   syntax and routing.
 IETF, 2014.}
 
+\bibitem{raggett1999html}
+\abntrefinfo{Raggett et al.}{RAGGETT et al.}{1999}
+{RAGGETT, D. et al. Html 4.01 specification.
+\emph{W3C recommendation}, v.~24, 1999.}
+
 \bibitem{shelby2014constrained}
 \abntrefinfo{Shelby, Hartke e Bormann}{SHELBY; HARTKE; BORMANN}{2014}
 {SHELBY, Z.; HARTKE, K.; BORMANN, C. The constrained application protocol
@@ -270,6 +275,30 @@ University of Twente, Centre for Telematics and Information Technology, 2001.}
 {KRIPKE, S.~A. A completeness theorem in modal logic.
 \emph{The journal of symbolic logic}, Cambridge University Press, v.~24, n.~1,
   p. 1--14, 1959.}
+
+\bibitem{huth2004logic}
+\abntrefinfo{Huth e Ryan}{HUTH; RYAN}{2004}
+{HUTH, M.; RYAN, M. \emph{Logic in Computer Science: Modelling and Reasoning
+  about Systems}. [S.l.]: Cambridge University Press, 2004.
+ISBN 9781139453059.}
+
+\bibitem{muller1999invited}
+\abntrefinfo{Muller-Olm, Schmidt e Steffen}{MULLER-OLM; SCHMIDT; STEFFEN}{1999}
+{MULLER-OLM, M.; SCHMIDT, D.; STEFFEN, B. Invited talks and
+  tutorials-model-checking. a tutorial introduction.
+\emph{Lecture Notes in Computer Science}, Berlin: Springer-Verlag, 1973-,
+  v.~1694, p. 330--354, 1999.}
+
+\bibitem{katoen1999concepts}
+\abntrefinfo{Katoen}{KATOEN}{1999}
+{KATOEN, J.-P. \emph{Concepts, algorithms, and tools for model checking}.
+  [S.l.]: IMMD Erlangen, 1999.}
+
+\bibitem{baier2008principles}
+\abntrefinfo{Baier e Katoen}{BAIER; KATOEN}{2008}
+{BAIER, C.; KATOEN, J. \emph{Principles of Model Checking}. [S.l.]: MIT Press,
+  2008.
+ISBN 9780262026499.}
 
 \bibitem{baeten2005brief}
 \abntrefinfo{Baeten}{BAETEN}{2005}
