@@ -32,11 +32,11 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Projeto}}{51}{chapter.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Cronograma}}{53}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Trabalhos Relacionados}}{53}{chapter.4}
+\contentsline {section}{\numberline {4.1}Especifica\IeC {\c c}\IeC {\~a}o formal de um protocolo de IoT}{53}{section.4.1}
+\contentsline {section}{\numberline {4.2}Um modelo para contratos multilaterais}{54}{section.4.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Trabalhos Relacionados}}{55}{chapter.5}
-\contentsline {section}{\numberline {5.1}Especifica\IeC {\c c}\IeC {\~a}o formal e an\IeC {\'a}lise de um protocolo de IoT}{55}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linguagem para contratos multilaterais}{55}{section.5.2}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {M\IeC {\'e}todo proposto}}{61}{chapter.5}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{57}{section*.10}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{63}{section*.16}

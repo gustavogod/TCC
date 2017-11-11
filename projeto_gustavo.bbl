@@ -329,4 +329,15 @@ ISBN 9780262026499.}
 \emph{Electronic Notes in Theoretical Computer Science}, Elsevier, v.~39, n.~1,
   p. 21--46, 2003.}
 
+\bibitem{xu2005detection}
+\abntrefinfo{Xu, Jeusfeld e Grefen}{XU; JEUSFELD; GREFEN}{2005}
+{XU, L.; JEUSFELD, M.~A.; GREFEN, P.~W. Detection tests for identifying
+  violators of multi-party contracts.
+\emph{ACM SIGecom Exchanges}, ACM, v.~5, n.~3, p. 19--28, 2005.}
+
+\bibitem{haugen2002multi}
+\abntrefinfo{Haugen e Fletcher}{HAUGEN; FLETCHER}{2002}
+{HAUGEN, B.; FLETCHER, T. Multi-party electronic business transactions.
+\emph{Valid on 060630}, 2002.}
+
 \end{thebibliography}

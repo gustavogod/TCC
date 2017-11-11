@@ -878,7 +878,7 @@ Com isso, a sintaxe da CCS é apresentada conforme segue:
 	~\textit{\underline{if}}~\textit{true}~\textit{\underline{then}}~P~\textit{\underline{else}~F}
 \end{equation}
 
-O CCS é baseado nos elementos: constante de processo $K \in \mathcal{K}$; ação prefixada $\alpha.P$ (lê-se, $\alpha$, então $P$), onde $\alpha \in Act$ e $P \in \mathcal{P}$; somatório $\Sigma_{i\in I} P_{i}~|~P_{1}$, no qual $P_{1} + P_{2} = \Sigma_{i\in \{1,2\}}~P_{i}$, que representa uma escolha não determinística entre $P_{1}$ ou $P_{2}$ ($P_{1}, P_{2} \in \mathcal{P}$); composição paralela $P_{1} | P_{2}$, representa que os processos $P_{1}$ e $P_{2}$ estão executando paralelamente e encontram-se prontos para se comunicar; restrição $P \setminus L$ (lê-se $P$ restringido por $L$), sendo que $L \subseteq \mathcal{A}$; renomeação $P[f]$ (lê-se $P$ renomeado por f), dado que $P \in \mathcal{P}$ e $f$ é uma função de renomeação denotada por $f : Act \longrightarrow Act$, em que $f(\tau) = \tau$ e $f(\overline{a}) = \overline{f(a)}$; condição $\textit{\underline{if}}~\textit{true}~\textit{\underline{then}}~P~\textit{\underline{else}}~F$, no qual \textit{true} representa que uma dada condição que pode ser verdadeira ou não.    
+O CCS é baseado nos elementos: constante de processo $K \in \mathcal{K}$; ação prefixada $\alpha.P$ (lê-se: $\alpha$, então $P$), onde $\alpha \in Act$ e $P \in \mathcal{P}$; somatório $\Sigma_{i\in I} P_{i}~|~P_{1}$, no qual $P_{1} + P_{2} = \Sigma_{i\in \{1,2\}}~P_{i}$, que representa uma escolha não determinística entre $P_{1}$ ou $P_{2}$ ($P_{1}, P_{2} \in \mathcal{P}$); composição paralela $P_{1} | P_{2}$, representa que os processos $P_{1}$ e $P_{2}$ estão executando paralelamente e encontram-se prontos para se comunicar; restrição $P \setminus L$ (lê-se: $P$ restringido por $L$), sendo que $L \subseteq \mathcal{A}$; renomeação $P[f]$ (lê-se: $P$ renomeado por f), dado que $P \in \mathcal{P}$ e $f$ é uma função de renomeação denotada por $f : Act \longrightarrow Act$, em que $f(\tau) = \tau$ e $f(\overline{a}) = \overline{f(a)}$; condição $\textit{\underline{if}}~\textit{true}~\textit{\underline{then}}~P~\textit{\underline{else}}~F$, no qual \textit{true} indica que uma dada condição que pode ser verdadeira ou não.    
 
 A fim de evitar o uso excessivo de parênteses e organizar a interpretação sobre as expressões dos processos, é dada a seguinte regra de procedência de operadores:
 
@@ -908,14 +908,12 @@ regra~\dfrac{premissa}{conclusão}~condições
 
 As transições denotadas na Tabela~\ref{tab:pi_sos} podem gerar derivações capazes de serem computadas por meio de uma árvore de derivação, como ilustrado na Figura~\ref{fig:ccs_tree}, considerando os seguintes processos e suas definições:
 
-\begin{equation}
-\begin{align*}
-A \stackrel{def}{=} a.A',\\
-A' \stackrel{def}{=} \overline{c}.A,\\
-B \stackrel{def}{=} c.B',\\
-B' \stackrel{def}{=} \overline{b},B
-\end{align*}
-\end{equation} 
+\begin{align}
+&A \stackrel{def}{=} a.A', \nonumber \\
+&A' \stackrel{def}{=} \overline{c}.A, \nonumber \\
+&B \stackrel{def}{=} c.B', \nonumber \\
+&B' \stackrel{def}{=} \overline{b},B
+\end{align}
 
 \begin{figure}[ht]
 	\centering
@@ -977,19 +975,14 @@ Uma característica presente no CCS é a passagem de valores, que permite que va
 
 Na Figura~\ref{fig:ccs_value} são apresentados exemplos de passagem de valor, em que é aplicada uma troca de valor simples e outra infinita, de acordo com os processos modelados abaixo.
 
-\begin{equation}
-\begin{align*}
-P \stackrel{def}{=} in(x).P'(x) \\
-P'(x) \stackrel{def}{=} \overline{out}(x).P
-\end{align*}
-\end{equation}
-
-\begin{equation}
-\begin{align*}
-P \stackrel{def}{=} \sum_{i \in \mathbb{N}} in(i).C'_{i} \\
-C'_{i} \stackrel{def}{=} \overline{out}(i).C
-\end{align*}
-\end{equation}
+\begin{align}
+&P \stackrel{def}{=} in(x).P'(x) \nonumber \\
+&P'(x) \stackrel{def}{=} \overline{out}(x).P
+\end{align}
+\begin{align}
+&P \stackrel{def}{=} \sum_{i \in \mathbb{N}} in(i).C'_{i} \nonumber \\
+&C'_{i} \stackrel{def}{=} \overline{out}(i).C
+\end{align}
 
 \begin{figure}[ht]
 	\centering
@@ -1042,10 +1035,7 @@ Para cada agente nas formas $\overline{y}x.P$ e $y(x).P$, a ocorrência de $y$ e
 
 O operador de correspondência $[x = y]P$ indica que o agente irá se comportar como $P$ caso os nomes $x$ e $y$ sejam idênticos. Caso contrário, agirá como $0$.
 
-Uma equação de definição de um identificador de agente $A$ é dada por
-\begin{align*}
-&A(x_{1}, ..., x_{n})\stackrel{def}{=}P,
-\end{align*}  
+Uma equação de definição de um identificador de agente $A$ é dada por $$A(x_{1}, ..., x_{n})\stackrel{def}{=}P,$$
 
 em que os elementos do tipo $x_{i}$ são distintos e $fn(P)\subseteq \{x_{1}, ..., x_{n}\}$.
 
@@ -1113,7 +1103,7 @@ A Figura~\ref{fig:pi_graph} a seguir apresenta o grafo de fluxo do sistema:
 \end{figure}
 \FloatBarrier
 
-\subsection{Álgebra temporal de processos TPi}
+\subsection{Álgebra temporal de processos TPi} \label{sec:tpi}
     
 A TPi é uma álgebra temporal de processos inspirada no Cálculo-$\pi$~\cite{milner1992calculus, milner1992calculus2} e desenvolvida por~\citeauthor{berger2003two}. O formalismo apresenta um cálculo para transmissão síncrona de mensagens capaz de expressar entradas cronometradas~\cite{aziz2016formal}.
 
@@ -1156,8 +1146,8 @@ $\eth(P)=$
 
 \begin{figure}[ht]
 	\centering
-	Regras da relação $\equiv$ :
 	\begin{align}
+		&\textbf{Regras~da~relação}~\equiv: \nonumber \\
 		& \mathcal{P}/ \equiv, |, \textbf{0})~é~um~monóide~comutativo \\
 		& (vx)\textbf{0} \equiv \textbf{0} \\
 		& (vx)(vy)P \equiv (vy)(vx)P \\
@@ -1166,10 +1156,9 @@ $\eth(P)=$
 		& timer^{0}(x(z).P,Q) \equiv Q \label{eq:6} \\ 
 		& timer^{\infty}(x(z).P,Q) \equiv x(z).P \label{eq:7} \\
 		& A(x) \equiv P[x/y],~em~que~A(y) \stackrel{def}{=} P \label{eq:8} \\
-		& A() \equiv P,~em~que~A() \stackrel{def}{=} P \label{eq:9}
-	\end{align}
-	Regras da relação $\stackrel{\alpha}{\longrightarrow}$ : 
-	\begin{align}
+		& A() \equiv P,~em~que~A() \stackrel{def}{=} P \label{eq:9} \\
+		& \nonumber \\
+		&\textbf{Regras~da~relação}~\stackrel{\alpha}{\longrightarrow}: \nonumber \\
 		& \overline{x}\langle y \rangle.P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} P \\		
 		& timer^{t+1}(x(z).P,Q) \stackrel{x(z)}{\longrightarrow} P \\
 		& P \stackrel{\overline{x}\langle y \rangle}{\longrightarrow} Q ~~ \Rightarrow ~~ (vy)P \stackrel{\overline{x}(y)}{\longrightarrow} se~ x \neq y \\

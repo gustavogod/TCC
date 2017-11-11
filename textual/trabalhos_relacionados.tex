@@ -1,5 +1,197 @@
 \chapter{Trabalhos Relacionados}
 
-\section{Especificação formal e análise de um protocolo de IoT}
+Uma abordagem para modelagem do protocolo MQTT escrita em TPi~\cite{berger2003two}, foi proposta por~\citeauthor{aziz2016formal}. Por um lado, a TPi oferece um alto nível de abstração em relação a comunicação concorrente entre múltiplos agentes, porém, não é capaz de formalizar informações importantes como descrição detalhada das ações, conteúdo das mensagens e ordenação da execução dos sistemas.
 
-\section{Linguagem para contratos multilaterais}
+Um contrato multilateral consiste num conjunto de compromissos envolvendo o acordo entre múltiplos agentes para garantir o cumprimento de cláusulas, a fim de satisfazer as vontades das partes envolvidas, formalizando assim, uma relação contratual. O modelo de contrato multilateral proposto por~\citeauthor{xu2004multi}, oferece um alto nível de detalhamento das relações existentes entre os agentes e suas ações, permitindo a formalização completa do contrato, além de proporcionar a possibilidade da aplicação de um método de monitoramento reativo para detecção das partes responsáveis por violações contratuais~\cite{xu2004multi, xu2005detection}.
+
+A seguir são apresentados os trabalhos que estão mais intimamente relacionados com esta pesquisa. Inicialmente é apresentada a técnica de modelagem do protocolo MQTT e posteriormente técnicas para formalização, monitoramento reativo e detecção de violação de contratos multilaterais.  
+
+\section{Especificação formal de um protocolo de IoT}
+
+Devido ao crescimento e popularização da IoT, estima-se que bilhões de novos dispositivos estejam interconectados num futuro próximo, gerando bilhões em receita e promovendo maior conforto e bem estar na vida dos usuários, além de otimizar processos industriais e outras aplicações. Tais fatores potencializam a proliferação e demanda por equipamentos com baixo poder de processamento e armazenamento, como sensores e leitores RFID. Com base nisso, são impulsionados os esforços pela padronização da comunicação M2M. Assim, protocolos de comunicação como o MQTT~\cite{mqttv3.1.1}, XMPP~\cite{xmpp2011extensible}, CoAP~\cite{shelby2014constrained} e outros, surgiram como solução para lidar com a comunicação entre dispositivos inseridos no ambiente de IoT~\cite{aziz2016formal}.
+
+Aplicações em IoT podem carecer de um alto nível de confiança em termos de corretude das especificações dos sistemas e assegurar que propriedades não funcionais sejam cumpridas, como segurança e privacidade. Sendo assim, é de suma importância a adoção de métodos formais de análise que garantam que as especificações tenham o mínimo de ambiguidade possível, oferecendo maior confiança e robustez para aplicações que adotam tais especificações~\cite{aziz2016formal}. Diante desta questão, foi proposto por~\citeauthor{aziz2016formal} uma método para modelagem e análise do protocolo MQTT, que auxilia na compreensão do comportamento operacional do protocolo, bem como na detecção de ambiguidades presentes na sua especificação.
+
+\subsection*{Modelagem}
+
+O comportamento operacional do protocolo foi modelado com base nas especificações descritas em sua documentação~\cite{mqttv3.1.1} por meio de um cálculo temporal de processos chamado TPi~\cite{berger2003two}, descrito na Seção~\ref{sec:tpi}. O modelo é baseado na entrega de pacotes PUBLISH, de acordo com os níveis de QoS oferecidos no MQTT, cujas características são discutidas na Seção~\ref{sec:qos}. A modelagem completa é exposta na Figura~\ref{fig:mqtt_model}.
+
+\begin{figure}[ht]
+	\centering
+\begin{align}
+&\textbf{QoS~nível~0:} \nonumber \\
+&\quad Cliente(Publish)~|~Servidor(),~em~ que: \nonumber \\
+&\quad Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle \nonumber \\
+&\quad Servidor() \stackrel{def}{=} c(x).\overline{pub}\langle x \rangle \label{eq:qos0} \\
+& \nonumber \\
+&\textbf{QoS~nível~1:} \nonumber \\
+&\quad Cliente(Publish)~|~Servidor(),~em~ que: \nonumber \\
+&\quad Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle.timer^{t}(c'(y),Cliente(Publish_{DUP}) \nonumber \\
+&\quad Servidor() \stackrel{def}{=} !c(x).\overline{pub}\langle x \rangle . \overline{c'} \langle Puback \rangle \\
+& \nonumber \\
+&\textbf{QoS~nível~2:} \nonumber \\
+&\quad Cliente(Publish)~|~Servidor(),~em~ que: \nonumber \\
+&\quad Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle.timer^{t}(c(y).ClienteCont(y), Cliente(Publish_{DUP})) \nonumber \\
+&\quad ClienteCont(u) \stackrel{def}{=} \overline{c'}\langle Pubrel_{u} \rangle . timer^{t'} (c'(w), ClienteCont(u)) \nonumber \\
+&\quad Servidor() \stackrel{def}{=} !c(l).(ServidorLate(l) + ServidorEarly(l)) \nonumber \\
+&\quad ServidorLate(x) \stackrel{def}{=} (\overline{c}\langle Pubrec_{x} \rangle.c'(v).\overline{pub}\langle x \rangle.\overline{c'}\langle Pubcomp_{v} \rangle.!(c'(v').\overline{c'}\langle Pubcomp_{v'} \rangle)) \nonumber \\
+&\quad ServidorEarly(x) \stackrel{def}{=} (\overline{pub}\langle x \rangle.c'(v).\overline{pub}\langle x \rangle.\overline{c}\langle Pubrec_{x} \rangle.c'(q).\overline{c'}\langle Pubcomp_{q} \rangle. \nonumber \\
+&\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad  !(c'(q').\overline{c'}\langle Pubcomp_{q'} \rangle))
+\end{align}
+	\caption{Modelo do protocolo MQTTv3.1.1 em TPi baseado nos três níveis de QoS~\cite{aziz2016formal}, adaptado pelo autor.
+		\label{fig:mqtt_model}}
+\end{figure}
+\FloatBarrier
+
+\section{Um modelo para contratos multilaterais}
+
+A execução de contratos entre múltiplas partes de negócio representam um ofício relevante dentro da economia global, em que atividades ao longo da cadeia de valor são executadas de forma independente porém cooperativamente entre as companhias~\cite{xu2004monitoring}. Sendo assim, é de suma importância que as partes envolvidas em uma relação contratual cumpram com as cláusulas das quais são responsáveis, e, em caso de não cumprimento, ou seja, quando há uma violação do contrato, o responsável pela violação deve ser identificado.
+
+Uma forma de identificar o responsável por uma violação baseia-se em "quebrar" o contrato num conjunto de contratos bilaterais, e então apontar o responsável, já que essa é uma tarefa relativamente mais simples de ser executada em contratos bilaterais. Porém, pesquisas como a de~\citeauthor{haugen2002multi} demonstram que, apesar da ideia parecer viável, em um relacionamento multilateral complexo, onde há uma série de dependências envolvendo múltiplos agentes, essa conversão pode resultar na perda ou ocultação de informação.
+
+Diante disso, foi proposto por~\citeauthor{xu2004multi} um modelo de contrato multilateral capaz de representar relações contratuais complexas entre múltiplos agentes, assim como realizar o monitoramento do contrato e identificar os responsáveis por violações.
+
+%As definições e conceitos envolvidos são exemplificador por meio de um estudo de caso que envolve a celebração de um contrato multilateral que abrange as partes envolvidas no serviço de uma seguradora de veículos.
+
+\subsection*{Modelo de contrato multilateral}
+
+De acordo com~\citeauthor{xu2004multi}, um contrato é o acordo entre duas ou mais partes baseado em compromissos mútuos. Assim, o modelo proposto consiste em três partes:
+\begin{itemize}
+	\item \textbf{Ação}: Descreve o que cada parte deverá fazer;
+	\item \textbf{Compromisso}: É a garantia entre as partes envolvidas de que um conjunto de ações deverá ser completamente executado, e todas as partes envolvidas irão cumprir sua parte;
+	\item \textbf{Grafo de compromisso}: É uma forma de visualizar os compromisso entre as partes, demonstrando assim os relacionamentos de compromisso entre elas.
+\end{itemize}
+
+\subsection*{Ações}
+
+As ações representam um átomo do modelo contratual e constituem as arestas do grafo de comprometimento. Um agente envolvido num contrato pode assumir diferentes papéis. Os coleção dos papéis de um agente é especificado como $\mathcal{R}_{x}$, no qual $x$ é a identificação do agente, e o conjunto de todos os papéis de um contrato é denotado por $\mathbb{R}$. As ações e todas as outras definições do contrato estão reunidas em um conjunto denominado $ID$.
+
+Posto isto, uma ação é um quadrupla $a = name, sender, receiver, deadline$, no qual:
+\begin{itemize}
+	\item $name \in ID$ é o identificador da ação;
+	\item $sender, receiver \in \mathbb{R}$ são os papéis;
+	\item $deadline \in \mathbb{T}$ é uma representação simplificada do tempo (dias, horas, segundos, etc).
+\end{itemize}
+
+O identificador ($name$) deve ser única para cada ação para permitir seu rastreamento. A coleção de todas as ações é denotada pelo conjunto $\mathbb{A}$, tal que $$\mathbb{A} = \underset{\forall x \in \mathcal{P}}{\bigcup}\{action\}.$$
+
+\subsection*{Compromisso}
+
+Um compromisso é uma garantia de uma das partes que a outra parte irá cumprir com o combinado no contrato. Considerando que um contrato multilateral é formado por um ou mais compromissos, um compromisso inclui ações que deverão ser executadas por um ou mais agentes. Tais ações podem acionar ($trigger$), implicar ($involve$) ou terminar ($finish$) o compromisso. Estes atributos pertencem ao conjunto $\mathcal{U} = \{tr,in,fi\}$.
+
+Considerando o conjunto de identificadores $ID$, o conjunto das partes de um contrato como $\mathcal{P}$, o numerador $N = \{1, 2, 3, ...\}$ e o conjunto de ações denotado por $\mathbb{N}$, um compromisso pode ser denotado pela quíntupla $$commitment = (name, sender, receiver, n, \{(a_{1},u_{1}), (a_{2}, u_{2}), ..., (a_{n}, u_{n}) \colon a_{i} \in \mathbb{A}, u_{i} \in \mathbb{U}\}).$$
+
+Em que:
+
+\begin{itemize}
+	\item $name$ é o identificador único do compromisso;
+	\item $sender$ é a parte do contrato que atua como expedidor do compromisso;
+	\item $receiver$ é a parte do contrato que atua como receptor do compromisso;
+	\item $n$ representa o número total de ações envolvidas, tal que $n \in \mathbb{N}$;
+	\item $(a_{1},a_{2},...,a_{n})~e~(u_{1},u_{2},...,u_{n})$ representam o par ordenado das ações e seus atributos.
+\end{itemize}
+
+A conjunto de todos os compromissos de um contrato é denotado por $\mathbb{M}$ e representado como $$\mathbb{M} = \underset{\forall x \in \mathcal{P}}{\bigcup}\{commitment\}.$$
+
+Considerando que $a_{i} \in \mathbb{A}$, $m \in \mathbb{M}$ e a função de sequência $f_{position} \colon \mathbb{A} \times \mathbb{M} \rightarrow N$, então $f_{position}(a_{1},m)$ define a posição de uma ação $a_{i}$ em um compromisso $m$.
+
+\subsection*{Grafo de compromisso}
+
+Os compromissos tem um aspecto dinâmico, e o grafo de compromissos mostra o relacionamentos complexos entre os compromissos do contrato.
+
+O grado de compromisso é um grafo direcionado que consiste em um conjunto de nós que corresponde a todos os papéis contidos em $\mathbb{R}$, e em um conjunto de areatas correspondendo a suas ações, seus rótulos e as ordens dos compromissos.
+
+%exemplo aqui carai
+
+Sendo $\mathbb{A}$ o conjunto de ações, em que $a \in \mathbb{A}$, $\mathbb{M}$ é um conjunto de compromissos, tal que $m \in \mathbb{M}$ e $X = \{1, 2, 3, 4, ...\}$, a função de sequência $f_{position}(a,m)$, as arestas são representadas pela relação $\mathbb{A} \times \mathbb{M} \times X$, como segue:
+$$edge = \underset{\forall x \in \mathcal{P}}{\bigcup} \{(a, m, f_{position}(a, m)) \colon a \in \mathbb{A}, m \in \mathbb{M}, f_{position}(a, m) \in X}$$
+
+O conjunto de todas as arestas é denotado por
+$$\mathbb{E} = \underset{\forall x \in \mathcal{P}}{\bigcup}\{edge\}.$$
+
+A ordem dos compromissos indica como eles irão ocorrer. Se $m_{2}$ é ativado após o término de $m_{1}$, então $m_{1}.m_{2}$. A relação $M \times M$ expressa a ordem de ocorrência de um compromisso, conforme segue:
+$$ordercommitment = \{(m_{1}.m_{2}) \colon m_{1}, m_{2} \in \mathbb{M}, m_{1} \neq m_{2}}$$ 
+
+Tendo $\mathcal{P}$ como o conjunto de todos os agentes do contrato, o conjunto de todas as ordens de compromisso de todos os relacionamentos nos quais os compromissos ocorrem ordenadamente pode ser especificado como 
+$$\mathbb{O} = \underset{\forall x \in \mathcal{P}}{\bigcup}\{m_{1}.m_{2}\}.$$
+
+Por fim, o grafo de compromisso pode ser definido como
+$$G = (\mathbb{R}, \mathbb{E}, \mathbb{O}).$$
+
+Desta forma, um contrato multilateral pode ser representado formalmente, sendo $\mathbb{A}$ o conjunto de ações, $\mathbb{M}$ o conjunto de todos os compromissos e $G$ como o grafo de compromisso, da seguinte forma:
+$$Contract = \{\mathbb{A}, \mathbb{M}, G \}$$
+
+\subsection*{Violação do contrato}
+
+A violação de um contrato consiste na quebra ou falha no cumprimento dos termos e cláusulas por uma ou mais partes partes envolvidas. Considerada um dos problemas cruciais na execução de um contrato, a violação normalmente pode ser detectada por qualquer parte envolvida ou por um monitor~\cite{xu2004multi}.
+
+De acordo com~\citeauthor{xu2004multi}, uma solução comum, porém ineficiente, consiste em recuperar todas as ações que deveriam ter ocorrido. A abordagem proposta por~\citeauthor{xu2004multi} é baseada no uso dos grafos de compromisso para otimizar o processo de detecção. Após encontrar a ação "perdida" (a), os rótulos das arestas e as ordens dos compromissos nos grafos são usados para o processo de detecção. A técnica segue os seguintes passos:
+\begin{enumerate}
+	\item Procurar todos os compromissos alcançáveis pela ação (a) por meio dos rótulos das arestas. Estes são chamados de compromissos diretos;
+	\item Buscar todos os compromissos que deveriam estar completos antes dos compromissos alcançáveis. Estes são denominados compromissos indiretos. As ações que possuem o atributo $f_{i}$ são verificadas, e, se ocorreram, então os compromissos diretos foram realizados;
+	\item Para os compromissos diretos, verifica-se a ocorrência de todas as ações até a ação alcançável mais alta;
+	\item Caso um compromisso indireto não seja completado, as ações do compromisso são verificadas recursivamente;
+	\item Para todas as ações encontradas em falta ("perdidas"), os responsáveis pela realização dessas ações são co-responsáveis pela violação do contrato.
+\end{enumerate}
+
+O Algoritmo~\ref{alg:detectarViolac} descreve o processo de detecção do responsável ou responsáveis pela violação do contrato.
+
+\begin{algorithm}[h]
+\SetKwInOut{Input}{input} \SetKwInOut{Output}{output}
+\Input{$Contract = \{\mathbb{A}, \mathbb{M}, G \}$, \\ Ação perdida $a_{missing}$}
+\Output{Parte responsável pela ação perdida $sender.a_{missing}$}
+\Begin{
+	$\triangleright$ /*Encontrar compromissos diretamente relacionados e posições das ações envolvidas*/
+	$\mathcal{M}_{direct} \leftarrow \underset{\forall m \in \mathbb{M}}{\bigcup} \{edge.m \colon \exists edge, (edge.a, edge.m), edge.a = a_{missing}\},$ \\
+	$(f_{position},m) \leftarrow \{(edge.f_{position}(a,m), edge.m) \colon edge.a = a_{missing}\},$ \\
+	$\triangleright$ /*Encontrar todos os compromissos indiretamente envolvidos*/
+	$\mathcal{F}_{position} \leftarrow \underset{\forall m \in \mathcal{M}_{direct}}{\bigcup} \{(f_{position},m)\},$ \\
+	$\mathcal{M}_{mid} \leftarrow \mathcal{M}_{direct},~~\mathcal{M}_{indirect} = \emptyset,$ \\
+	\Repeat{$\mathcal{M}_{mid} = \emptyset$}{
+		$\mathcal{M}_{mid} = \underset{\forall m \in \mathcal{M}_{mid}}{\bigcup} \{m' \colon m' ~ \cdotp m \in \mathbb{O}\};$ \\
+		$\mathcal{M}_{indirect} = \mathcal{M}_{indirect} \cup \mathcal{M}_{mid};$ \\
+	}
+	$\triangleright$ /*Checar todos os compromissos indiretos*/ \\
+	\For{$\forall m \in \mathcal{M}_{indirect}$}{
+		\For{$\forall a \in \mathbb{A} \colon m.(a,u) \wedge u = "fi"$}{
+			\uIf{$a(m, m.n)~já~ocorreu~$}{
+				return($ \varnothing $);
+			}
+			\Else{
+				\For{$x = m.n~até~1$}{
+					\uIf{$a(m,x)~ainda~não~ocorreu \wedge x > 1$}{
+						$x \leftarrow x - 1;$
+					}
+					\uElseIf{$a(m,x)~ainda~não~ocorreu \wedge x = 1$}{
+						return($\varnothing$);
+					}
+					\ElseIf{$a(m,x)~já ~ocorreu$}{
+						return($ sender.a(m,x+1) $);
+					}
+				}	
+			}
+		}
+	}
+	$ \triangleright $ /*Checar todos os compromissos diretos*/ \\
+	\For{$ \forall m \in \mathcal{M}_{direct}$}{
+		\For{$y = m.f_{position} - 1~até~1$}{
+			\uIf{$a(m,y)~ainda~não~ocorreu \wedge y > 1$}{
+				$y \leftarrow y - 1$;
+			}
+			\uElseIf{$a(m,y)~ainda~não~ocorreu \wedge y = 1$}{
+				return($\varnothing$);
+			}
+			\ElseIf{$a(m,y)~já~ocorreu$}{
+				return($sender.a(m,y+1)$);
+			}
+		}
+	}
+	\If{return($sender$)$ = \emptyset$}{
+		return($sender.a_{missing}$);
+	}
+}
+\caption{Detecção das Partes Responsáveis pela Violação Contratual 
+				\label{alg:detectarViolac}}
+\end{algorithm}
+
+Com essa estrutura é possível detectar o responsável ou responsáveis pela violação do contrato, realizando o monitoramento reativo, isto é, aquele que ocorre após a violação do contrato.
