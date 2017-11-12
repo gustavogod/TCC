@@ -1,3 +1,116 @@
-\chapter{Método proposto}
+\chapter{Um método para monitoramento reativo do protocolo MQTT}
 
- 
+A tarefa de identificar os responsáveis por violações contratuais é extremamente necessária na área de contratação eletrônica. Da mesma forma, em um ambiente de IoT, pode ser de interesse das partes envolvidas identificar os responsáveis por falhas de comunicação, como um sensor de incêndio que deixa de enviar um alerta, um sistema de cuidados médicos que deixa de emitir um aviso quando uma situação crítica é detectada, ou até mesmo um atuador que não é ativado, não por falha interna, mas devido a mensagem de ativação que deveria ter recebido ter sido perdida por conta de fatores externos, como interferências.
+
+Conforme discutido na Seção~\ref{sec:protocols}, um dos principais desafios da IoT envolve a comunicação eficiente entre dispositivos limitados. O MQTT~\cite{mqttv3.1.1} é um dos protocolos que surgiram para lidar com este problema, e seu uso tende a crescer, visto que a área da IoT encontra-se em pleno crescimento. Sendo assim, haverão cada vez mais dispositivos conectados operando sobre o MQTT.
+
+Assim como numa relação contratual, em um ambiente de IoT, os dispositivos estão operando de acordo com regras pré estabelecidas no âmbito de se atingir os objetivos do sistema. Portanto, cada objeto conectado desempenha uma função e executa ações com base em compromissos que o sistema se propõe a cumprir. Desta forma, pode-se considerar esse conjunto de compromissos e funções pré configuradas como sendo o protocolo do sistema, que atua sobre um ou mais protocolos de comunicação. Com base nisso, este capítulo propõe um método para monitoramento reativo de protocolos de IoT que atuam sobre o MQTT.
+
+O método proposto consiste em modelar a comunicação entre os dispositivos do ambiente de IoT de acordo com as características operacionais do MQTT. O modelo é obtido utilizando um cálculo temporal de processos concorrentes chamado TPi~\cite{berger2003two}, que apresenta alto nível de abstração para a representação da comunicação entre processos, que também podem ser chamados de agentes, ou partes envolvidas. Para maior detalhamento das ações e suas ordens de execução, foi desenvolvido um algoritmo para conversão do protocolo modelado em TPi para um modelo de contrato multilateral~\cite{xu2004multi}. Com o contrato obtido, é possível aplicar o algoritmo de monitoramento reativo proposto e aplicado por~\citeauthor{xu2004multi}~\cite{xu2004monitoring,xu2005detection}.
+
+A modelagem dos protocolos é feita com base no comportamento operacional do MQTT com nível de QoS igual a zero, quando uma mensagem é enviada no máximo uma vez e não há confirmação de recebimento~\cite{mqttv3.1.1}. A pesquisa para viabilidade da aplicação do método para os demais níveis de QoS são sugeridas como trabalho futuro. Detalhes sobre os três níveis de QoS são discutidos na Seção~\ref{sec:qos}.
+
+Com o intuito de manter o método proposto autocontido neste Capítulo, algumas propriedades relacionadas ao protocolo MQTT, e a estrutura sintática do TPi e de contratos multilaterais serão apresentadas novamente quando necessárias.
+
+\section{Análise do modelo e estrutura operacional do MQTT com QoS 0}
+
+De acordo com a documentação do protocolo MQTT~\cite{mqttv3.1.1}, o QoS $0$ é definido pela regra "\textit{At most once}" (No máximo uma vez), em que o pacote PUBLISH é enviado apenas uma vez, e recebido uma ou nenhuma vez, visto que não há nenhum tipo de confirmação de recebimento documentada.
+
+A declaração normativa MQTT-4.3.1-1~\cite{mqttv3.1.1} define apenas uma ação que deve ser obrigatoriamente cumprida:
+\begin{itemize}
+	\item O expedidor deve enviar um pacote PUBLISH com QoS=0 e DUP=0.
+\end{itemize}
+
+Assim sendo, o modelo construído por~\citeauthor{aziz2016formal} escrito em TPi é apresentado com algumas alterações como segue:
+
+\begin{align}
+&\textbf{QoS~nível~0:} \nonumber \\
+&\quad Cliente(Publish)~|~Servidor()~|~ClienteSub(),~em~que: \nonumber \\
+&\quad Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle \nonumber \\
+&\quad Servidor() \stackrel{def}{=} c(x).\overline{pub}\langle x \rangle \nonumber \\
+&\quad ClienteSub \stackrel{def}{=} pub(y) \label{eq:mqtt_qos0}
+\end{align}
+
+O modelo determina que os processos $Cliente$, $Servidor$ e $ClienteSub$, tal que $Cliente, Servidor, ClienteSub \in \mathcal{P}$, estão executando em paralelo por meio do uso do operador de composição paralela $|$. O pacote PUBLISH contido na porta de entrada de $Cliente()$, indica que o sistema tem como ponto de partida a entrada do pacote, que substituirá o nome $z$, de forma que $Cliente\{Publish / z\}$. 
+
+O processo $Cliente$ define que a mensagem contida no nome $z$ deverá ser enviado pela porta de saída $\overline{c}$ do canal de comunicação $c$. O $Servidor$, por sua vez, é encarregado de receber a mensagem pela porta de entrada do canal $c$, e em seguida, disponibilizá-la no canal de saída $\overline{pub}$ para que assim, seja recebida pelos clientes previamente assinados no mesmo tópico no qual o pacote PUBLISH é destinado. 
+
+Percebe-se que no modelo~\ref{eq:mqtt_qos0}, diferente do que foi apresentado na Seção~\ref{sec:mqtt_model}, há a adição do processo $ClienteSub$ (cliente \textit{subscriber}), que representa o cliente assinado no tópico em que o pacote PUBLISH é direcionado. Portanto, o $ClienteSub$ é definido pela porta de entrada $pub$, por onde o pacote será recebido, de forma que $ClienteSub\{Publish/y\}$. Vale ressaltar que não há um limite de assinantes para o mesmo tópico, logo, vários processos podem estar vinculados ao mesmo tópico, sendo que, o processo $ClienteSub$ foi adicionado no intuito de auxiliar a compreensão do processo como um todo, uma vez que não está previsto na especificação do protocolo.
+
+Percebe-se que, durante o processo de comunicação, as mensagens representadas pelos nomes $z, x, y \in \mathcal{N}$ sempre serão as mesmas.
+
+O modelo considera um ambiente onde o processo $Cliente$ encontra-se apto para se comunicar com o servidor. Por conta disso, é ocultada a operação obrigatória de conexão entre o $Cliente$ e o $Servidor$, em que o $Cliente$ envia um pacote CONNECT requisitando a conexão, que é estabelecida assim que obtêm um pacote CONNACK como resposta do $Servidor$. Esse processo pode ser modelado como:
+\begin{align}
+& Cliente(Connect)~|~Servidor(),~em~que: \nonumber \\
+& Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle . c'(y) \nonumber \\
+& Servidor() \stackrel{def}{=} c(x). \overline{c'}\langle Connack \rangle
+\end{align} 
+
+\section{Transformando o modelo do MQTT com QoS 0 em um contrato}
+
+Com base nas observações feitas na Seção anterior, nota-se que os processos $Cliente$, $Servidor$ e $ClienteSub$, atuam como agentes definidos pelas respectivas operações $\overline{c}$, $c(x).\overline{pub}\langle x \rangle$ e $pub(y)$, as quais apontam ações de entrada ou saída de mensagens. Diante disso, as definições dos processos podem ser consideradas um conjunto de ações a serem executadas para que o modelo do sistema seja satisfeito. Portanto, um modelo em TPi pode representar um compromisso definido por ações realizadas a serem realizadas pelos processos, no caso do modelo~\ref{eq:mqtt_qos0}, o compromisso de entregar um pacote PUBLISH com QoS$=0$  aos assinantes. Assim sendo, de acordo com o modelo de contrato multilateral definido por~\citeauthor{xu2004multi}, podemos nomear o compromisso como $$C\_QoS0delivery,$$ em que $"C"$ é um prefixo usado para identificação de compromissos. 
+
+O conjunto dos agentes é definido por $\mathcal{P} = \{C, S, CS\}$, no qual $C$ é o cliente, $S$, o servidor, e $CS$, o cliente \textit{subscriber}.
+
+Como as mensagens representadas pelos nomes $z, x, y \in \mathcal{N}$ sempre serão as mesmas, a partir das definições $\{(\overline{c}\langle z \rangle), (c(x).\overline{pub}(x)), (pub(y)) \}$, são definidas as seguintes ações:
+\begin{itemize}
+	\item $ \overline{c}\langle z \rangle $: O cliente $C$ envia um pacote PUBLISH ao servidor $S$. $$(A\_QoS0enviarPublish,C,S,?)$$
+	\item  $c(x).\overline{pub}(x)$: O servidor $S$ recebe o pacote PUBLISH. $$(A\_QoS0receberPublish,S,S,?)$$
+	\item $ \overline{pub}(x) $: O servidor $S$ disponibiliza o pacote PUBLISH para os assinantes interessados. $$(A\_QoS0publicarPacote,S,CS^{n},?)$$
+	\item $pub(y)$: O cliente assinante $CS$ recebe o pacote PUBLISH. $$(A\_QoS0receberPacote)$$
+\end{itemize}
+
+Desta forma, o conjunto das ações é descrito como $$\{(A\_QoS0enviarPublish,C,S,?), (A\_QoS0receberPublish,S,S,?),$$ $$(A\_QoS0publicarPacote,S,CS^{n},?), (A\_QoS0receberPacote)\}.$$
+
+Como não há nenhum critério temporal envolvido no envio de pacotes com QoS$=0$, o campo $deadline$ das ações são atribuídos com o símbolo "$?$". Assim, subentende-se que ficará a critério da aplicação de IoT definir a representação temporal adequada.
+
+Visto que são detectadas apenas ações relacionadas com envio ou recebimento de mensagens, em que um envio é finalizado com um recebimento, então pode-se definir que ações de envio são do tipo $trigger$ e as ações de recebimento são do tipo $finish$, não havendo nada envolvido entre as mesmas.
+
+Sendo assim, o compromisso $C\_QoS0delivery$ é constituído como segue:
+\begin{eqnarray}
+c = \{C\_QoS0delivery,C,CS,4, \{ &(A\_QoS0enviarPublish,tr)&  \nonumber \\
+&(A\_QoS0receberPublish,fi)&  \nonumber \\
+&(A\_QoS0publicarPacote,tr)&  \nonumber \\
+&(A\_QoS0receberPacote,fi) \}\}& 
+\end{eqnarray}
+
+Uma vez que o compromisso está devidamente formalizado, a tabela de compromissos pode ser obtida, como apresentado na Tabela~\ref{tab:qos0}, sendo que, a coluna referente as ações do tipo $involve$ é ocultada, já que não é utilizada. 
+
+\begin{table}[!ht]
+	\centering\tiny{
+		\caption{Tabela de comprometimento $C\_QoS0delivery$. \label{tab:qos0}}
+\begin{tabular}{|l|l|l|l|}
+	\hline
+	\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Compromissos}}} & \multicolumn{2}{c|}{Classificação das ações e compromissos} & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Rótulos}}} \\ \cline{2-3}
+	\multicolumn{1}{|c|}{}                                       & \multicolumn{1}{c|}{$tr$}    & \multicolumn{1}{c|}{$fi$}    & \multicolumn{1}{c|}{}                                  \\ \hline
+	$C\_QoS0delivery$                                            & $A\_QoS0enviarPublish$       &                              & $Q0,1$                                                 \\ \cline{2-4} 
+	\multicolumn{1}{|c|}{$(Q0)$}                                 &                              & $A\_QoS0receberPublish$      & $Q0,2$                                                 \\ \cline{2-4} 
+	& $A\_QoS0publicarPacote$      &                              & $Q0,3$                                                 \\ \cline{2-4} 
+	&                              & $A\_QoS0receberPacote$       & $Q0,4$                                                 \\ \hline
+\end{tabular}
+	}
+\end{table}
+
+A partir da tabela o grafo de comprometimento pode ser obtido, conforme ilustrado na Figura~\ref{fig:grafo_qos0}.
+
+\begin{figure}[ht]
+	\centering
+\begin{tikzpicture}[>={Stealth[width=6pt,length=9pt]}, accepting/.style={double distance = 2pt, outer sep = 1pt + \pgflinewidth}, shorten >=1pt, auto]
+\draw (73.0pt, -98.0pt)node[state](0){$C$};
+\draw (215.0pt, -98.0pt)node[state](1){$S$};
+\draw (352.0pt, -98.0pt)node[state](2){$CS$};
+\path[->] (1) edge[loop above] node{Q0, 2}(1);
+\path[->] (0) edge node{Q0, 1}(1);
+\path[->] (2) edge[loop above] node{Q0, 4}(2);
+\path[->] (1) edge node{Q0, 3}(2);
+\end{tikzpicture}
+	\caption{Grafo de compromisso $C\_QoS0delivery$.
+		\label{fig:grafo_qos0}}
+\end{figure}
+\FloatBarrier
+
+\section{Algoritmo de conversão de modelo: TPi para contrato multilateral}
+
+
+
+\section{Algoritmo de monitoramento reativo}

@@ -36,7 +36,11 @@
 \contentsline {section}{\numberline {4.1}Especifica\IeC {\c c}\IeC {\~a}o formal de um protocolo de IoT}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Um modelo para contratos multilaterais}{54}{section.4.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {M\IeC {\'e}todo proposto}}{61}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Um m\IeC {\'e}todo para monitoramento reativo do protocolo MQTT}}{61}{chapter.5}
+\contentsline {section}{\numberline {5.1}An\IeC {\'a}lise do modelo e estrutura operacional do MQTT com QoS 0}{62}{section.5.1}
+\contentsline {section}{\numberline {5.2}Transformando o modelo do MQTT com QoS 0 em um contrato}{63}{section.5.2}
+\contentsline {section}{\numberline {5.3}Algoritmo de convers\IeC {\~a}o de modelo: TPi para contrato multilateral}{65}{section.5.3}
+\contentsline {section}{\numberline {5.4}Algoritmo de monitoramento reativo}{65}{section.5.4}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{63}{section*.16}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{67}{section*.16}

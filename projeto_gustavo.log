@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.17)  11 NOV 2017 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.17)  12 NOV 2017 05:02
 entering extended mode
 **./projeto_gustavo.tex
 (projeto_gustavo.tex
@@ -1694,13 +1694,10 @@ l.44
 l.45 \imprimirfolhadeaprovacao
                                [2
 
-] (projeto_gustavo.toc)
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] (projeto_gustavo.toc [3
 
- [3
-
-]
-[4] (textual/introducao.tex
+]) [4]
+(textual/introducao.tex
 Overfull \hbox (2.6521pt too wide) in paragraph at lines 11--12
 \T1/lmr/m/n/12 ressalta-se a mi-ni-a-tu-ri-za-ção do \T1/lmr/m/it/12 hard-ware\
 T1/lmr/m/n/12 , além da cri-a-ção do Pro-to-colo de \T1/lmr/m/it/12 In-ter-net 
@@ -1729,42 +1726,42 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (textual/fundamenta.tex [9] [10
 
 ]
-<imagens/iot_diagram.png, id=207, 884.30376pt x 783.92876pt>
+<imagens/iot_diagram.png, id=217, 884.30376pt x 783.92876pt>
 File: imagens/iot_diagram.png Graphic file (type png)
 
 <use imagens/iot_diagram.png>
 Package pdftex.def Info: imagens/iot_diagram.png used on input line 28.
 (pdftex.def)             Requested size: 455.0pt x 403.36299pt.
  [11]
-<imagens/iot_vision.png, id=220, 573.14125pt x 292.09125pt>
+<imagens/iot_vision.png, id=230, 573.14125pt x 292.09125pt>
 File: imagens/iot_vision.png Graphic file (type png)
 
 <use imagens/iot_vision.png>
 Package pdftex.def Info: imagens/iot_vision.png used on input line 42.
 (pdftex.def)             Requested size: 318.49861pt x 162.31757pt.
  [12 <./imagens/iot_diagram.png>] [13 <./imagens/iot_vision.png>] <imagens/iot_
-fields.png, id=243, 555.07375pt x 344.28625pt>
+fields.png, id=253, 555.07375pt x 344.28625pt>
 File: imagens/iot_fields.png Graphic file (type png)
 
 <use imagens/iot_fields.png>
 Package pdftex.def Info: imagens/iot_fields.png used on input line 65.
 (pdftex.def)             Requested size: 409.49722pt x 253.99557pt.
  [14 <./imagens/iot_fields.png>]
-<imagens/iot_protocols.png, id=255, 502.87875pt x 312.16624pt>
+<imagens/iot_protocols.png, id=265, 502.87875pt x 312.16624pt>
 File: imagens/iot_protocols.png Graphic file (type png)
 
 <use imagens/iot_protocols.png>
 Package pdftex.def Info: imagens/iot_protocols.png used on input line 81.
 (pdftex.def)             Requested size: 318.49861pt x 197.70892pt.
  [15 <./imagens/iot_protocols.png>]
-<imagens/cliente_servidor.png, id=279, 531.9875pt x 132.495pt>
+<imagens/cliente_servidor.png, id=289, 531.9875pt x 132.495pt>
 File: imagens/cliente_servidor.png Graphic file (type png)
 
 <use imagens/cliente_servidor.png>
 Package pdftex.def Info: imagens/cliente_servidor.png used on input line 116.
 (pdftex.def)             Requested size: 364.00139pt x 90.65945pt.
  [16] [17 <./imagens/cliente_servidor.png>]
-<imagens/ex_http.png, id=299, 691.08188pt x 184.43906pt>
+<imagens/ex_http.png, id=309, 691.08188pt x 184.43906pt>
 File: imagens/ex_http.png Graphic file (type png)
 
 <use imagens/ex_http.png>
@@ -1775,14 +1772,14 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 148.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [18 <./imagens/ex_http.png>]
-<imagens/coap_arq.png, id=312, 606.265pt x 442.65375pt>
+<imagens/coap_arq.png, id=322, 606.265pt x 442.65375pt>
 File: imagens/coap_arq.png Graphic file (type png)
 
 <use imagens/coap_arq.png>
 Package pdftex.def Info: imagens/coap_arq.png used on input line 169.
 (pdftex.def)             Requested size: 364.00139pt x 265.7699pt.
  [19 <./imagens/coap_arq.png>]
-<imagens/coap_header.png, id=326, 525.46312pt x 94.85437pt>
+<imagens/coap_header.png, id=336, 525.46312pt x 94.85437pt>
 File: imagens/coap_header.png Graphic file (type png)
 
 <use imagens/coap_header.png>
@@ -1796,28 +1793,28 @@ Overfull \hbox (24.71997pt too wide) in paragraph at lines 272--273
 T1/lmr/m/n/12 e uti-li-zando a es-tra-té-gia pu-bli-ca-ção/assinatura
  []
 
-[21] <imagens/mqtt_broker.png, id=355, 604.2575pt x 263.98625pt>
+[21] <imagens/mqtt_broker.png, id=365, 604.2575pt x 263.98625pt>
 File: imagens/mqtt_broker.png Graphic file (type png)
 
 <use imagens/mqtt_broker.png>
 Package pdftex.def Info: imagens/mqtt_broker.png used on input line 288.
 (pdftex.def)             Requested size: 364.00139pt x 159.02538pt.
  [22 <./imagens/mqtt_broker.png>]
-<imagens/mqtt_format.png, id=366, 493.0922pt x 48.18pt>
+<imagens/mqtt_format.png, id=376, 493.0922pt x 48.18pt>
 File: imagens/mqtt_format.png Graphic file (type png)
 
 <use imagens/mqtt_format.png>
 Package pdftex.def Info: imagens/mqtt_format.png used on input line 308.
 (pdftex.def)             Requested size: 364.00139pt x 35.56807pt.
 
-<imagens/mqtt_pacFormat.png, id=370, 443.40656pt x 63.23625pt>
+<imagens/mqtt_pacFormat.png, id=380, 443.40656pt x 63.23625pt>
 File: imagens/mqtt_pacFormat.png Graphic file (type png)
 
 <use imagens/mqtt_pacFormat.png>
 Package pdftex.def Info: imagens/mqtt_pacFormat.png used on input line 318.
 (pdftex.def)             Requested size: 364.00139pt x 51.91484pt.
  [23 <./imagens/mqtt_format.png> <./imagens/mqtt_pacFormat.png>]
-<imagens/mqtt_pubFormat.png, id=383, 443.40656pt x 63.98906pt>
+<imagens/mqtt_pubFormat.png, id=393, 443.40656pt x 63.98906pt>
 File: imagens/mqtt_pubFormat.png Graphic file (type png)
 
 <use imagens/mqtt_pubFormat.png>
@@ -1829,28 +1826,28 @@ Overfull \hbox (44.26758pt too wide) in paragraph at lines 353--390
  []
 
 [24 <./imagens/mqtt_pubFormat.png>]
-<imagens/mqtt_qos0.png, id=398, 438.8897pt x 104.64093pt>
+<imagens/mqtt_qos0.png, id=408, 438.8897pt x 104.64093pt>
 File: imagens/mqtt_qos0.png Graphic file (type png)
 
 <use imagens/mqtt_qos0.png>
 Package pdftex.def Info: imagens/mqtt_qos0.png used on input line 413.
 (pdftex.def)             Requested size: 409.49722pt x 97.63597pt.
  [25 <./imagens/mqtt_qos0.png>]
-<imagens/mqtt_qos1.png, id=410, 438.13687pt x 152.06813pt>
+<imagens/mqtt_qos1.png, id=420, 438.13687pt x 152.06813pt>
 File: imagens/mqtt_qos1.png Graphic file (type png)
 
 <use imagens/mqtt_qos1.png>
 Package pdftex.def Info: imagens/mqtt_qos1.png used on input line 440.
 (pdftex.def)             Requested size: 409.49722pt x 142.1296pt.
  [26 <./imagens/mqtt_qos1.png>]
-<imagens/mqtt_qos2.png, id=421, 438.13687pt x 477.28313pt>
+<imagens/mqtt_qos2.png, id=431, 438.13687pt x 477.28313pt>
 File: imagens/mqtt_qos2.png Graphic file (type png)
 
 <use imagens/mqtt_qos2.png>
 Package pdftex.def Info: imagens/mqtt_qos2.png used on input line 472.
 (pdftex.def)             Requested size: 409.49722pt x 446.08995pt.
  [27] [28 <./imagens/mqtt_qos2.png>]
-<imagens/tabela_protocolos.png, id=438, 477.28313pt x 328.97906pt>
+<imagens/tabela_protocolos.png, id=448, 477.28313pt x 328.97906pt>
 File: imagens/tabela_protocolos.png Graphic file (type png)
 
 <use imagens/tabela_protocolos.png>
@@ -1860,131 +1857,117 @@ Package pdftex.def Info: imagens/tabela_protocolos.png used on input line 490.
 Underfull \vbox (badness 1953) has occurred while \output is active []
 
  [29 <./imagens/tabela_protocolos.png>] [30] [31] [32] [33] [34]
-<imagens/ex_arvore.png, id=539, 275.0275pt x 211.79124pt>
+<imagens/ex_arvore.png, id=549, 275.0275pt x 211.79124pt>
 File: imagens/ex_arvore.png Graphic file (type png)
 
 <use imagens/ex_arvore.png>
 Package pdftex.def Info: imagens/ex_arvore.png used on input line 634.
 (pdftex.def)             Requested size: 181.99722pt x 140.15428pt.
  [35 <./imagens/ex_arvore.png>] [36] [37] [38]
-<imagens/ctl_ex.png, id=617, 412.54124pt x 213.04594pt>
+<imagens/ctl_ex.png, id=627, 412.54124pt x 213.04594pt>
 File: imagens/ctl_ex.png Graphic file (type png)
 
 <use imagens/ctl_ex.png>
 Package pdftex.def Info: imagens/ctl_ex.png used on input line 769.
 (pdftex.def)             Requested size: 409.49722pt x 211.47852pt.
+ [39 <./imagens/ctl_ex.png>] [40] [41]
+
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-! Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.780 \end{align*}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[39 <./imagens/ctl_ex.png>] [40] [41]
-
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \' invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
+LaTeX Warning: Command \c invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 887.
+LaTeX Warning: Command \~ invalid in math mode on input line 885.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 887.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 887.
+LaTeX Warning: Command \' invalid in math mode on input line 885.
 
 [42]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 905.
+LaTeX Warning: Command \~ invalid in math mode on input line 903.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 905.
+LaTeX Warning: Command \c invalid in math mode on input line 903.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 905.
+LaTeX Warning: Command \~ invalid in math mode on input line 903.
 
 [43] [44]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1010.
+(hyperref)                removing `math shift' on input line 1008.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\pi' on input line 1010.
+(hyperref)                removing `\pi' on input line 1008.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1010.
+(hyperref)                removing `math shift' on input line 1008.
 
 [45]
 
 LaTeX Warning: Reference `fig:pi_semant' on page 46 undefined on input line 105
-4.
+2.
 
-[46] <imagens/calc_pi_ex.png, id=728, 485.815pt x 171.64125pt>
+[46] <imagens/calc_pi_ex.png, id=738, 485.815pt x 171.64125pt>
 File: imagens/calc_pi_ex.png Graphic file (type png)
 
 <use imagens/calc_pi_ex.png>
-Package pdftex.def Info: imagens/calc_pi_ex.png used on input line 1100.
+Package pdftex.def Info: imagens/calc_pi_ex.png used on input line 1098.
 (pdftex.def)             Requested size: 364.00139pt x 128.60226pt.
  [47 <./imagens/calc_pi_ex.png>]
 
-LaTeX Warning: Reference `tab:tpi_sos' on page 48 undefined on input line 1127.
+LaTeX Warning: Reference `tab:tpi_sos' on page 48 undefined on input line 1125.
 
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1136 \begin{cases}
+l.1134 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1992,7 +1975,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1145 \end{cases}
+l.1143 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2001,16 +1984,16 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1172.
+LaTeX Warning: Command \' invalid in math mode on input line 1170.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1172.
+LaTeX Warning: Command \' invalid in math mode on input line 1170.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1172.
+LaTeX Warning: Command \' invalid in math mode on input line 1170.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 1172.
+LaTeX Warning: Command \' invalid in math mode on input line 1170.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2103,8 +2086,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (textual/metodo_proposto.tex [58] [59] [60
 
-]) (projeto_gustavo.bbl [61]
-[62
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61]
+[62]
+Overfull \hbox (3.05165pt too wide) in paragraph at lines 51--51
+[]\T1/lmr/m/n/12 Com base nas ob-ser-va-ções fei-tas na Se-ção an-te-rior, nota
+-se que os pro-ces-sos $\OML/lmm/m/it/12 Cliente$\T1/lmr/m/n/12 ,
+ []
+
+[63] [64]) (textual/estudo_de_caso.tex) (projeto_gustavo.bbl [65] [66
 
 ]
 
@@ -2124,17 +2116,17 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[63] [64] [65]) 
+[67] [68] [69]) 
 AED: lastpage setting LastPage
-[66]
+[70]
 \tf@toc=\write6
 \openout6 = `projeto_gustavo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
  (projeto_gustavo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 87.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 88.
 
 
 LaTeX Warning: There were undefined references.
@@ -2142,16 +2134,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 26655 strings out of 493323
- 474560 string characters out of 3139042
- 726101 words of memory out of 3000000
- 29271 multiletter control sequences out of 15000+200000
+ 26689 strings out of 493323
+ 475056 string characters out of 3139042
+ 727702 words of memory out of 3000000
+ 29289 multiletter control sequences out of 15000+200000
  81813 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,25n,69p,1136b,892s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,25n,69p,1136b,896s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
@@ -2171,9 +2163,9 @@ eX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on projeto_gustavo.pdf (68 pages, 1032127 bytes).
+Output written on projeto_gustavo.pdf (72 pages, 1055490 bytes).
 PDF statistics:
- 1227 PDF objects out of 1440 (max. 8388607)
- 353 named destinations out of 1000 (max. 500000)
- 413 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 366 named destinations out of 1000 (max. 500000)
+ 445 words of extra memory for PDF output out of 10000 (max. 10000000)
 

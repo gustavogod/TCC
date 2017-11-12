@@ -773,12 +773,10 @@ Na Figura~\ref{fig:ctl_ex}, à esquerda, é representado um modelo, e à direita
 \FloatBarrier
 
 A sintaxe de construção de fórmulas CTL estende a LTL e adiciona os operadores existencial ($E$) e universal ($A$) consiste em:
-\begin{equation}
-\begin{align*}
-& \varphi ::= \top \mid \perp \mid p \mid \neg \varphi \mid \varphi \wedge \varphi \mid \varphi\vee\varphi \mid \varphi \to \varphi \mid \\ 
+\begin{align}
+& \varphi ::= \top \mid \perp \mid p \mid \neg \varphi \mid \varphi \wedge \varphi \mid \varphi\vee\varphi \mid \varphi \to \varphi \mid \nonumber \\ 
 & AX\varphi \mid EX\varphi \mid AF\varphi \mid EF\varphi \mid AG\varphi \mid EG\varphi \mid A[\varphi U \varphi]\mid E[\varphi U \varphi]
-\end{align*}
-\end{equation} 
+\end{align}
 
 Os conectivos temporais da CTL são usados em pares. O primeiro conectivo da fórmula é um quantificador, denotado por $A$ (inevitavelmente) ou $E$ (provavelmente), enquanto que o segundo é usado da mesma forma que na LTL. Os operadores temporais $E$ e $A$ expressam propriedades para algum ou todos os caminhos de computação que se iniciam em
 determinado estado~\cite{katoen1999concepts}. Alguns exemplos de fórmulas CTL são apresentados a seguir: 
