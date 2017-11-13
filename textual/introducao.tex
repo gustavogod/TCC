@@ -40,16 +40,13 @@ A comunicação é um fator crítico num projeto em IoT, pois a troca de dados e
 
 O protocolo MQTT foi desenvolvido especialmente para aplicações em IoT e M2M (\textit{Machine-to-Machine}). Com um cabeçalho de apenas 2 \textit{bytes}, e implementando um servidor próprio, chamado de \textit{broker}, é capaz de prover a troca de mensagens entre dispositivo por meio da estratégia \textit{publish/subscribe}, minimizando o uso de banda de rede e recursos do dispositivo~\cite{mqttv3.1.1}. 
 
-Em seu trabalho,~\citeauthor{mladenov2017formal} mostram que as aplicações do protocolo MQTT nem sempre implementam corretamente todos os seus requisitos normativos~\cite{mladenov2017formal}. Porém, não atribuem tal problema a falhas na especificação do protocolo, já que o mesmo não foi profundamente estudado, embora esta seja uma possível causa.
-
-Um modo de verificar protocolos de maneira precisa e com rigor matemático é utilizando técnicas de modelagem e verificação formal, sendo possível representar propriedades do protocolo por meio de um modelo e realizar a verificação formal das mesmas. Assim, todos os estados possíveis que dada propriedade pode assumir é automaticamente testado, e, em caso de não conformidade com o esperado, um contraexemplo é mostrado, auxiliando na busca por falhas, e, consequentemente, contribuir com correções e avanços dos campos de aplicação~\cite{clarke1999model}. 
-%buscar referências
-
-No trabalho desenvolvido por~\citeauthor{aziz2016formal}, o protocolo MQTT foi modelado por meio de uma álgebra temporal de processos, chamada \textit{TPi}. Posteriormente, foi aplicado um processo manual de análise formal que apontou ambiguidades na especificação. Sendo assim, foram sugeridas melhorias para sanar esses problemas.
-
-Entretanto, não se tem conhecimento de algum estudo que realize a verificação formal automática do protocolo, de maneira que possibilite que projetos de IoT que utilizam o MQTT possam ser modelados e testados antes de sua implantação.
-
-Portanto, a motivação deste trabalho consiste em colaborar com trabalhos futuros de IoT, os quais a comunicação entre os dispositivos envolvidos possa ser modelada e testada em busca de falhas ainda na fase de projeto, encurtando o tempo de desenvolvimento e ajudando na difusão do uso do MQTT.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{imagens/tcc_estrutura.png}
+	\caption{Escopo do método proposto.
+		\label{fig:tcc_escopo}}
+\end{figure}
+\FloatBarrier
 
 \section{Formulação e Escopo do Problema}
 
@@ -70,42 +67,3 @@ A partir do elaborado por~\citeauthor{aziz2016formal}, pode-se criar um algoritm
 
 \section{Objetivos gerais e específicos}
 
-O objetivo geral deste trabalho consiste no desenvolvimento de um algoritmo baseado em \textit{Model Checking} que permita modelar e realizar a verificação da comunicação entre dispositivos de IoT que utilizam o MQTT, e assim, procurar por falhas na troca de mensagens entre eles.
-
-Os objetivos específicos para se atingir o propósito deste trabalho são:
-
-\begin{itemize}
-    \item Levantar os problemas mais comuns nos protocolos de comunicação em IoT;
-	\item Levantar um conjunto de propriedades que representam o funcionamento do protocolo MQTT;
-	\item Definir métodos de modelagem formal de protocolos que possam ser aplicados sobre o MQTT;
-	\item Desenvolver um algoritmo para verificação formal do protocolo com base no modelo estabelecido;
-	\item Testar a solução desenvolvida em um estudo de caso.
-\end{itemize}
-
-\section{Método de pesquisa}
-
-A pesquisa desenvolvida neste trabalho possui natureza explicativa, pois além de observar as conclusões obtidas, pretende-se buscar suas causas e explicações a fim de apresentar conhecimento novo.
-
-Quanto aos procedimentos técnicos, será realizada uma pesquisa experimental, no intuito de observar e provocar alterações no ambiente pesquisado sempre que necessário.
-
-Tais procedimentos podem ser observados abaixo:
-
-\begin{enumerate}
-    \item Definição dos problemas mais comuns nos protocolos de comunicação em IoT;
-    \item Levantamento de um conjunto de propriedades que representam o funcionamento do protocolo MQTT;
-    \item Definição do método de modelagem formal que será aplicado;
-    \item Fazer a modelagem de acordo com o método escolhido;
-    \item Realizar a verificação das propriedades por meio de \textit{Model Checking} a procurar falhas como:
-        \begin{enumerate}
-            \item \textit{Deadlocks};
-            \item \textit{Livelocks};
-        \end{enumerate}
-    \item Desenvolver aplicação que implemente o protocolo MQTT suprindo possíveis falhas encontradas;
-    \item Implantar e testar a solução desenvolvida em um estudo de caso.
-\end{enumerate}
-
-%natureza da pesquisa: trabalho original
-
-%quanto aos objetivos: pesquisa explicativa
-
-%quanto aos procedimentos técnicos: pesquisa experimental
