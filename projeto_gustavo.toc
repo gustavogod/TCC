@@ -30,17 +30,19 @@
 \contentsline {subsection}{\numberline {2.5.2}C\IeC {\'a}lculo-$\pi $}{45}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}\IeC {\'A}lgebra temporal de processos TPi}{47}{subsection.2.5.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Projeto}}{51}{chapter.3}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Trabalhos Relacionados}}{51}{chapter.3}
+\contentsline {section}{\numberline {3.1}Especifica\IeC {\c c}\IeC {\~a}o formal de um protocolo de IoT}{51}{section.3.1}
+\contentsline {section}{\numberline {3.2}Um modelo para contratos multilaterais}{52}{section.3.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Trabalhos Relacionados}}{53}{chapter.4}
-\contentsline {section}{\numberline {4.1}Especifica\IeC {\c c}\IeC {\~a}o formal de um protocolo de IoT}{53}{section.4.1}
-\contentsline {section}{\numberline {4.2}Um modelo para contratos multilaterais}{54}{section.4.2}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Um m\IeC {\'e}todo para monitoramento reativo do protocolo MQTT}}{59}{chapter.4}
+\contentsline {section}{\numberline {4.1}An\IeC {\'a}lise do modelo e estrutura operacional do MQTT com QoS 0}{60}{section.4.1}
+\contentsline {section}{\numberline {4.2}Transformando o modelo do MQTT com QoS 0 em um contrato}{61}{section.4.2}
+\contentsline {section}{\numberline {4.3}Algoritmo de convers\IeC {\~a}o de modelo: TPi para contrato multilateral}{64}{section.4.3}
+\contentsline {section}{\numberline {4.4}Algoritmo de monitoramento reativo}{66}{section.4.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Um m\IeC {\'e}todo para monitoramento reativo do protocolo MQTT}}{61}{chapter.5}
-\contentsline {section}{\numberline {5.1}An\IeC {\'a}lise do modelo e estrutura operacional do MQTT com QoS 0}{62}{section.5.1}
-\contentsline {section}{\numberline {5.2}Transformando o modelo do MQTT com QoS 0 em um contrato}{63}{section.5.2}
-\contentsline {section}{\numberline {5.3}Algoritmo de convers\IeC {\~a}o de modelo: TPi para contrato multilateral}{65}{section.5.3}
-\contentsline {section}{\numberline {5.4}Algoritmo de monitoramento reativo}{65}{section.5.4}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Estudo de cado: Sistema para detec\IeC {\c c}\IeC {\~a}o e supress\IeC {\~a}o de inc\IeC {\^e}ndio}}{67}{chapter.5}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Trabalhos futuros}}{69}{chapter.6}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{67}{section*.16}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{71}{section*.16}

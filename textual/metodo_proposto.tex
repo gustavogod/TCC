@@ -39,12 +39,20 @@ Percebe-se que no modelo~\ref{eq:mqtt_qos0}, diferente do que foi apresentado na
 
 Percebe-se que, durante o processo de comunicação, as mensagens representadas pelos nomes $z, x, y \in \mathcal{N}$ sempre serão as mesmas.
 
-O modelo considera um ambiente onde o processo $Cliente$ encontra-se apto para se comunicar com o servidor. Por conta disso, é ocultada a operação obrigatória de conexão entre o $Cliente$ e o $Servidor$, em que o $Cliente$ envia um pacote CONNECT requisitando a conexão, que é estabelecida assim que obtêm um pacote CONNACK como resposta do $Servidor$. Esse processo pode ser modelado como:
+O modelo considera um ambiente onde o processo $Cliente$ encontra-se apto para se comunicar com o servidor. Por conta disso, é ocultada a operação obrigatória de conexão entre o $Cliente$ e o $Servidor$, em que o $Cliente$ envia um pacote CONNECT requisitando a conexão, que é estabelecida assim que obtêm um pacote CONNACK como resposta do $Servidor$~\cite{mqttv3.1.1}. Esse processo pode ser modelado como:
 \begin{align}
 & Cliente(Connect)~|~Servidor(),~em~que: \nonumber \\
 & Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle . c'(y) \nonumber \\
 & Servidor() \stackrel{def}{=} c(x). \overline{c'}\langle Connack \rangle
-\end{align} 
+\end{align}
+
+Outra operação que deve ficar subentendida é a assinatura, quando um cliente se inscreve num determinado tópico com a intensão de receber as mensagens publicadas posteriormente neste tópico. De acordo com a especificação do MQTT~\cite{mqttv3.1.1}, o cliente deve enviar ao servidor um pacote SUBSCRIBE, e o servidor, por sua vez, recebe a mensagem e responde o cliente com um pacote SUBACK. Por fim, o cliente recebe a resposta e está apto a receber mensagens que correspondam com o tópico no qual está registrado. O modelo em TPi desta operação é apresentado abaixo.
+
+\begin{align}
+& ClienteSub(Subscribe)~|~Servidor(),~em~que: \nonumber \\
+& Cliente(z) \stackrel{def}{=} \overline{c}\langle z \rangle . c'(y) \nonumber \\
+& Servidor() \stackrel{def}{=} c(x). \overline{c'}\langle Suback \rangle
+\end{align}   
 
 \section{Transformando o modelo do MQTT com QoS 0 em um contrato}
 
@@ -52,7 +60,14 @@ Com base nas observações feitas na Seção anterior, nota-se que os processos 
 
 O conjunto dos agentes é definido por $\mathcal{P} = \{C, S, CS\}$, no qual $C$ é o cliente, $S$, o servidor, e $CS$, o cliente \textit{subscriber}.
 
-Como as mensagens representadas pelos nomes $z, x, y \in \mathcal{N}$ sempre serão as mesmas, a partir das definições $\{(\overline{c}\langle z \rangle), (c(x).\overline{pub}(x)), (pub(y)) \}$, são definidas as seguintes ações:
+Uma ação é um quadrupla $a = name, sender, receiver, deadline$, no qual:
+\begin{itemize}
+	\item $name \in ID$ é o identificador da ação;
+	\item $sender, receiver \in \mathbb{R}$ são os papéis;
+	\item $deadline \in \mathbb{T}$ é uma representação simplificada do tempo (dias, horas, segundos, etc).
+\end{itemize}
+
+Posto isto, como as mensagens representadas pelos nomes $z, x, y \in \mathcal{N}$ serão sempre as mesmas, a partir das definições $\{(\overline{c}\langle z \rangle), (c(x).\overline{pub}(x)), (pub(y)) \}$, são definidas as seguintes ações:
 \begin{itemize}
 	\item $ \overline{c}\langle z \rangle $: O cliente $C$ envia um pacote PUBLISH ao servidor $S$. $$(A\_QoS0enviarPublish,C,S,?)$$
 	\item  $c(x).\overline{pub}(x)$: O servidor $S$ recebe o pacote PUBLISH. $$(A\_QoS0receberPublish,S,S,?)$$
@@ -65,6 +80,18 @@ Desta forma, o conjunto das ações é descrito como $$\{(A\_QoS0enviarPublish,C
 Como não há nenhum critério temporal envolvido no envio de pacotes com QoS$=0$, o campo $deadline$ das ações são atribuídos com o símbolo "$?$". Assim, subentende-se que ficará a critério da aplicação de IoT definir a representação temporal adequada.
 
 Visto que são detectadas apenas ações relacionadas com envio ou recebimento de mensagens, em que um envio é finalizado com um recebimento, então pode-se definir que ações de envio são do tipo $trigger$ e as ações de recebimento são do tipo $finish$, não havendo nada envolvido entre as mesmas.
+
+Um compromisso pode ser denotado pela quíntupla $$commitment = (name, sender, receiver, n, \{(a_{1},u_{1}), (a_{2}, u_{2}), ..., (a_{n}, u_{n}) \colon a_{i} \in \mathbb{A}, u_{i} \in \mathbb{U}\}).$$
+
+Em que:
+
+\begin{itemize}
+	\item $name$ é o identificador único do compromisso;
+	\item $sender$ é a parte do contrato que atua como expedidor do compromisso;
+	\item $receiver$ é a parte do contrato que atua como receptor do compromisso;
+	\item $n$ representa o número total de ações envolvidas, tal que $n \in \mathbb{N}$;
+	\item $(a_{1},a_{2},...,a_{n})~e~(u_{1},u_{2},...,u_{n})$ representam o par ordenado das ações e seus atributos.
+\end{itemize}
 
 Sendo assim, o compromisso $C\_QoS0delivery$ é constituído como segue:
 \begin{eqnarray}
@@ -111,6 +138,49 @@ A partir da tabela o grafo de comprometimento pode ser obtido, conforme ilustrad
 
 \section{Algoritmo de conversão de modelo: TPi para contrato multilateral}
 
+Com base no que foi feito na Seção anterior, a conversão do modelo em TPi para um contrato multilateral e realizada, primeiramente, seguindo um conjunto de 6 passos, são eles:
 
+\begin{enumerate}
+	\item Nomear o compromisso. Por exemplo, $c = C_QoS0delivery$.
+	\item Identificar os agentes envolvidos. Para cada processo em $P_{1}~|~P_{2}~|~...~|P_{n}~$, compõe o conjunto de agentes $\mathcal{P}$, tal que $P_{1}, P_{2}, ..., P_{n} \in \mathcal{P}$;
+	\item Identificar a ação que dá início ao sistema, esse passo consiste em duas tarefas:
+		\begin{itemize}
+			\item Localizar o primeiro processo do conjunto $\mathcal{P}$, $P_{1}$ por exemplo;
+			\item Identificar a mensagem que dá início ao sistema, situada entre parênteses após o $ID$ do processo inicial descrito em TPi. A mensagem inicial é denotada por $Mi$. Dado $P_{1}(msg)$, então $Mi = msg$.
+		\end{itemize}
+	\item Agrupar em duplas os processos e suas respectivas definições, formando o conjunto $\mathcal{D}$, tal que $$\mathcal{D} = \{(P_{1}, (def_{1}), (P_{2}, (def_{2}), \ldots, (P_{n}, (def_{n}))\}.$$
+	\item Trilhar a sequência de troca de mensagens. Toda ação de entrada e saída em TPi, como $\overline{y}\langle x \rangle.P$ e $y(x).P$, por exemplo, pode ser seguida ou não de um ponto "$.$", que indica uma nova ação a ser tomada após a execução da ação antecedente. Portanto, é possível traçar o caminho ordenado da troca de mensagens, da primeira à última ação, que são armazenadas do conjunto $\mathcal{S}$ seguidas de seu processo correspondente, formando uma dupla $(a_{n}, P_{m})$. Para isso, o algoritmo percorre as ações partindo da primeira ação do processo inicial $P_{1}$:
+		\begin{itemize}
+			\item  Para cada ação de saída $\overline{y}\langle x \rangle$, a mesma é alocada em $\mathcal{S}$. Em seguida, deve ser localizada uma ação de entrada $y(n)$, em que $y$, $x$ e $n$ representam nomes abstratos tal que $y, x, n \in \mathcal{N}$, e o nome $y$ deve ser igual em ambas as ações. É importante frisar que, uma porta de entrada de uma ação pode estar presente em outras ações, assim, todas irão receber a mesma mensagem simultaneamente;
+			\item Para cada ação de entrada localizada seguida "$.$", a ação é armazenada em $\mathcal{S}$ e o algoritmo segue para a ação posterior ao ponto.
+		\end{itemize}
+	\item O algoritmo encerra quando:
+		\begin{itemize}
+			\item Não é encontrada uma ação com a porta de entrada $y$ correspondente a uma porta de saída $\overline{y}$;
+			\item É armazenada uma ação de entrada $y(n)$, em que a mesma encerra o conjunto de ações da definição do processo a qual pertence.
+		\end{itemize}
+\end{enumerate}
+
+Após a aplicação do algoritmo, o sistema é representado pela quíntupla $$s = (name, Pi, \mathcal{P}, \mathcal{D} = \{(P_{1}, \{a_{1},...,a_{n}\}), ..., (P_{m}, \{a_{1},...,a_{n}\})\}, \mathcal{A} = \{(a_{1}, P_{1}), (a_{2}, P_{1})..., (a_{n}, P_{m})\}).$$
+
+Sendo que:
+\begin{itemize}
+	\item $name$: É o identificador único do compromisso;
+	\item $Pi$: Representa o processo inicial e a mensagem carregada pelo mesmo, denotado como $(Pi, Mi)$, tal que $Pi \in \mathcal{P}$ e $Mi$;
+	\item $\mathcal{P}$: Conjunto dos processos $(P_{1}, P_{2}, ..., P_{n})$;
+	\item $\mathcal{D}$: Conjunto dos processos e das ações que formam suas definições, tal que $P_{1}, ..., P_{m} \in \mathcal{P}$ e $a_{1}, ..., a_{n} \in \mathbb{A}$;
+	\item $\mathcal{A}$: Conjunto das ações dispostas de acordo com sua ordem de execução no sistema, seguidas de seus respectivos processos.
+	%\item $F$: Dupla composta da ação final e seu processo correspondente.
+\end{itemize}
+
+Vale ressaltar que, para que o algoritmo funcione corretamente, o primeiro processo descrito no modelo em TPi deve ser sempre aquele que dá início ao sistema. 
+
+Baseado nas propriedades do processo presentes na quíntupla $s$, o contrato pode ser, por fim, formalizado. Para definir as ações, basta procurá-las percorrendo as definições dos processos contidos no conjunto $\mathcal{D}$. Para cada ação de saída, o agente (ou processo) expedidor da ação recebe o papel de $sender$, e as ações que contenham a porta de entrada correspondente assumem o papel de $receiver$. A ação de entrada tem como $sender$ e $receiver$ o próprio processo no qual é definida. Quando uma ação de saída não possui uma ação de entrada correspondente no sistema, então o $receiver$ é considerado como um cliente abstrato $C_{sub}$.
+
+Definir o $name$ do compromisso é o primeiro passo para sua formalização. O $name$ do compromisso deve ser idêntico ao $name$ do sistema $s$. Os campos $sender$ e o $receiver$ são definidos pelo processo inicial contido em $Pi$ e pelo processo contido no último elemento de $\mathcal{A}$, respectivamente. No caso de uma ação de saída estar presente no último elemento de $\mathcal{A}$, então o $receiver$ é denotado como um cliente abstrato $C_{sub}$. As ações dos pares ordenados de ações e atributos do compromisso são atribuídos na mesma ordem que as ações presentes nos pares do conjunto $\mathcal{A}$. Já os atributos são declarados de acordo com o tipo de ação. As ações de saída e entrada recebem os atributos $trigger$ e $finish$, respectivamente, exceto quando uma ação de saída é o último elemento de $\mathcal{A}$, que deve ser atribuída como $finish$.
+
+Uma vez que os compromissos estão formalizados, o último passo para se obter o grafo de compromissos consiste em definir as ordens de execução destes. Porém, esta propriedade deve ser definida manualmente em razão de não se ter encontrado um meio para representá-la no modelo em TPi. Assim que as ordens de execução são definidas, o grafo de compromisso pode ser representado. 
 
 \section{Algoritmo de monitoramento reativo}
+
+Assim que as propriedades dos compromissos estão devidamente formalizadas, o algoritmo de monitoramento reativo proposto por~\citeauthor{xu2004multi} pode ser aplicado, possibilitando desta forma, a detecção de responsáveis por violações contratuais. A descrição do mecanismo de monitoramento é reproduzido pelo Algoritmo~\ref{alg:detectarViolac}, localizado na Seção~\ref{sec:trab_contratos}. 
