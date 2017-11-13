@@ -40,9 +40,12 @@
 \contentsline {section}{\numberline {4.3}Algoritmo de convers\IeC {\~a}o de modelo: TPi para contrato multilateral}{64}{section.4.3}
 \contentsline {section}{\numberline {4.4}Algoritmo de monitoramento reativo}{66}{section.4.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Estudo de cado: Sistema para detec\IeC {\c c}\IeC {\~a}o e supress\IeC {\~a}o de inc\IeC {\^e}ndio}}{67}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Estudo de caso: Sistema para detec\IeC {\c c}\IeC {\~a}o e supress\IeC {\~a}o de inc\IeC {\^e}ndio}}{67}{chapter.5}
+\contentsline {section}{\numberline {5.1}Processo 1: Detec\IeC {\c c}\IeC {\~a}o/Alerta}{68}{section.5.1}
+\contentsline {section}{\numberline {5.2}Processo 2: Checagem}{69}{section.5.2}
+\contentsline {section}{\numberline {5.3}Processo 3: Supress\IeC {\~a}o}{69}{section.5.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Trabalhos futuros}}{69}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Trabalhos futuros}}{71}{chapter.6}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{71}{section*.16}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{73}{section*.16}

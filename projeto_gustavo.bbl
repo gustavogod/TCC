@@ -340,4 +340,10 @@ ISBN 9780262026499.}
 {HAUGEN, B.; FLETCHER, T. Multi-party electronic business transactions.
 \emph{Valid on 060630}, 2002.}
 
+\bibitem{kang2017room}
+\abntrefinfo{Kang et al.}{KANG et al.}{2017}
+{KANG, D.-H. et al. Room temperature control and fire alarm/suppression iot
+  service using mqtt on aws. In:  IEEE. \emph{Platform Technology and Service
+  (PlatCon), 2017 International Conference on}. [S.l.], 2017. p.~1--5.}
+
 \end{thebibliography}
