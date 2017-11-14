@@ -39,7 +39,7 @@ Observa-se que, os autores não deixam claro que o disparo do evento para ativa�
 
 Tanto na descrição do cenário quanto nos esquemas apresentados na Figura~\ref{fig:estudo_msg} e na Tabela~\ref{tab:iot_protocol}, o envio da mensagem de alerta de incêndio do sensor para o \textit{sprinkler} não é especificado. Sendo assim, foram adicionados procedimento para assinatura do tópico "\textit{Fire/Detected}" e recebimento do alerta por meio do tópico na Figura~\ref{fig:estudo_msg}, e a descrição do envio da mensagem na Tabela~\ref{tab:iot_protocol}.
 
-Com base na descrição e objetivos do sistema, três processos que caracterizam seus compromissos são identificados: Detecção/Alerta; Checagem; e Supressão. Adiante, cada processo é modelado por meio da TPi de acordo com o comportamento operacional do MQTT quando QoS$=0$ e convertido em contrato multilateral. Por fim, o grafo de compromissos do sistema completo é obtido.
+Com base na descrição e objetivos do sistema, três processos que caracterizam seus compromissos são identificados: Detecção/Alerta; Checagem; e Supressão. Adiante, cada processo é modelado por meio da TPi de acordo com o comportamento operacional do MQTT quando QoS$=0$ e convertido em contrato multilateral por meio do algoritmo descrito na Seção~\ref{sec:algoritmo}. Por fim, o grafo de compromissos do sistema completo é obtido.
 
 \section{Processo 1: Detecção/Alerta}
 
@@ -48,12 +48,29 @@ O processo de detecção e alerta de incêndio requer o envolvimento do sensor d
 & Sensor(FireDetection)~|~Broker()~|~App()~|~Sprinkler(),~em~que: \nonumber \\
 & Sensor(z) \stackrel{def}{=} \overline{fd}\langle z \rangle \nonumber \\
 & Broker() \stackrel{def}{=} fd(x).\overline{fd'}\langle x \rangle \nonumber \\
-& App() \stackrel{def}{=} fd'(x) \nonumber \\
-& Sprinkler() \stackrel{def}{=} fd'(x)
+& App() \stackrel{def}{=} fd'(y) \nonumber \\
+& Sprinkler() \stackrel{def}{=} fd'(y')
 \end{align}
+
+\subsection*{Aplicação do algoritmo}
+
+O resultado obtido após a aplicação de cada passo do algoritmo é descrito como segue:
+\begin{enumerate}
+	\item $name$ = $C\_detectarIncêndio$;
+	\item $Pi = (Sensor, FireDetection)$;
+	\item $\mathcal{P} = \{Sensor, Broker, App, Sprinkler\}$;
+	\item $\mathcal{D} = \{(Sensor, \{\overline{fd}\langle z \rangle\}), (Broker, \{fd(x).\overline{fd'}\langle x \rangle\}), (App, \{fd'(y)\}), (Sprinkler, \{fd'(y')\})\}$
+	\item $\mathcal{A} = \{(\overline{fd}\langle z \rangle, Sensor), (fd(x), Broker), (\overline{fd'}\langle x \rangle, Broker), (fd'(y), App), (fd'(y'), Sprinkler)\}$
+\end{enumerate}
+
+De acordo com as regras estabelecidas na Seção~\ref{sec:algoritmo}, o compromisso pode ser declarado como:
+\begin{eqnarray}
+c_{1} = (C\_detectarIncendio, Sensor, Sprinkler, 5, \{&(\overline{fd}\langle z \rangle, tr), (fd(x), fi), (\overline{fd'}\langle x \rangle, tr), & \nonumber \\ &(fd'(y), fi), (fd'(y'), fi) \}) &
+\end{eqnarray}
 
 \section{Processo 2: Checagem}
 
+O processo de checagem do status do \textit{sprinkler} requer o envolvimento do aplicativo, do \textit{broker} e do \textit{sprinkler}. Seu modelo em TPi é descrito a seguir:
 \begin{align}
 & App(SprinklerRequest)~|~Broker()~|~Sprinkler(),~em~que: \nonumber \\
 & App(z) \stackrel{def}{=} \overline{req}\langle z \rangle . rep'(y) \nonumber \\
@@ -61,7 +78,32 @@ O processo de detecção e alerta de incêndio requer o envolvimento do sensor d
 & Sprinkler() \stackrel{def}{=} req'(v) . \overline{rep}\langle reqReply \rangle
 \end{align}
 
+\subsection*{Aplicação do algoritmo}
+
+O resultado obtido após a aplicação do algoritmo é exposto a seguir:
+%alterar o Pi de dentro do () na descrição do algoritmo
+\begin{enumerate}
+	\item $name = C\_detectarIncendio$;
+	\item $Pi = (App, SprinklerRequest)$;
+	\item $\mathcal{P} = \{App, Broker, Sprinkler\}$
+	\item $\mathcal{D} = \{ (App, \{\overline{req}\langle z \rangle . rep'(y)\}), (Broker, \{req(x) . \overline{req'}\langle x \rangle . rep(x') . \overline{rep'}\langle x' \rangle\}),$ 
+	\\
+	$(Sprinkler, \{req'(v) . \overline{rep}\langle reqReply \rangle\}) \};$
+	\item $\mathcal{A} = \{ (\overline{req}\langle z \rangle, App), (req(x), Broker), (\overline{req'}\langle x \rangle, Broker), (req'(v), Sprinkler),
+	\\
+	(\overline{rep}\langle reqReply \rangle, Sprinkler), (rep(x'), Broker), (\overline{rep'}\langle x' \rangle, Broker), (rep'(y), App) \}.$
+\end{enumerate}
+
+Deste modo, o compromisso é definido como:
+\begin{eqnarray}
+c_{2} = (C\_checarStatus, App, App, 8,\{& (\overline{req}\langle z \rangle, tr), (req(x), fi), (\overline{req'}\langle x \rangle, tr)& \nonumber \\ 
+&(req'(v), fi), (\overline{rep}\langle reqReply \rangle, tr), (rep(x'), fi), & \nonumber \\ 
+&(\overline{rep'}\langle x' \rangle, tr), (rep'(y), fi) \} )&
+\end{eqnarray}
+
 \section{Processo 3: Supressão}
+
+O processo de supressão de incêndio requer o envolvimento do sensor de incêndio, do Broker, do App e do Sprinkler. Seu modelo em TPi pode ser descrito abaixo:
 
 \begin{align}
 &Sensor(FireDetection)~|~Broker()~|~App()~|Sprinkler(),~em~que: \nonumber \\
@@ -70,3 +112,26 @@ O processo de detecção e alerta de incêndio requer o envolvimento do sensor d
 &App() \stackrel{def}{=} fd'(s) . \overline{st}\langle startSprinkler \rangle  \nonumber \\
 &Sprinkler() \stackrel{def}{=} st'(y)
 \end{align}
+
+\subsection*{Aplicação do algoritmo}
+
+O resultado atingido após a aplicação do algoritmo é descrito a seguir:
+\begin{enumerate}
+	\item $name = C\_suprirIncendio$;
+	\item $Pi = (Sensor, FireDetection)$;
+	\item $\mathcal{P} = \{Sensor, Broker, App, Sprinkler\}$;
+	\item $\mathcal{D} = \{ (Sensor, \{ \overline{fd}\langle z \rangle \nonumber \}), 
+	(Broker, \{  fd(x) . \overline{fd'}\langle x \rangle .  st(x') . \overline{st'}\langle x' \rangle  \}), 
+	\\
+	(App, \{ fd'(s) . \overline{st}\langle startSprinkler \rangle \}), 
+	(Sprinkler, \{ st'(y) \}) \};$
+	\item $\mathcal{A} = \{ (\overline{fd}\langle z \rangle, Sensor), (fd(x), Broker), (\overline{fd'}\langle x \rangle, Broker), (fd'(s), App), 
+	\\
+	(\overline{st}\langle startSprinkler \rangle, App), (st(x'), Broker), (\overline{st'}\langle x' \rangle, Broker), (st'(y), Sprinkler) \}.$
+\end{enumerate}
+
+Assim, o compromisso é definido como segue:
+\begin{eqnarray}
+c_{3} = \{ C\_suprirIncendio, Sensor, Sprinkler, 8, \{& (\overline{fd}\langle z \rangle, tr), (fd(x), fi), & \nonumber \\  &(\overline{fd'}\langle x \rangle, tr) 
+(fd'(s), fi), & \nonumber \\ & (\overline{st}\langle startSprinkler \rangle, tr), (st(x'), fi), & \nonumber \\ & (\overline{st'}\langle x' \rangle, tr), (st'(y), fi) \}&
+\end{eqnarray}

@@ -136,7 +136,7 @@ A partir da tabela o grafo de comprometimento pode ser obtido, conforme ilustrad
 \end{figure}
 \FloatBarrier
 
-\section{Algoritmo de conversão de modelo: TPi para contrato multilateral}
+\section{Algoritmo de conversão de modelo: TPi para contrato multilateral} \label{sec:algoritmo}
 
 Com base no que foi feito na Seção anterior, a conversão do modelo em TPi para um contrato multilateral e realizada, primeiramente, seguindo um conjunto de 6 passos, são eles:
 
@@ -149,16 +149,16 @@ Com base no que foi feito na Seção anterior, a conversão do modelo em TPi par
 			\item Identificar a mensagem que dá início ao sistema, situada entre parênteses após o $ID$ do processo inicial descrito em TPi. A mensagem inicial é denotada por $Mi$. Dado $P_{1}(msg)$, então $Mi = msg$.
 		\end{itemize}
 	\item Agrupar em duplas os processos e suas respectivas definições, formando o conjunto $\mathcal{D}$, tal que $$\mathcal{D} = \{(P_{1}, (def_{1}), (P_{2}, (def_{2}), \ldots, (P_{n}, (def_{n}))\}.$$
-	\item Trilhar a sequência de troca de mensagens. Toda ação de entrada e saída em TPi, como $\overline{y}\langle x \rangle.P$ e $y(x).P$, por exemplo, pode ser seguida ou não de um ponto "$.$", que indica uma nova ação a ser tomada após a execução da ação antecedente. Portanto, é possível traçar o caminho ordenado da troca de mensagens, da primeira à última ação, que são armazenadas do conjunto $\mathcal{S}$ seguidas de seu processo correspondente, formando uma dupla $(a_{n}, P_{m})$. Para isso, o algoritmo percorre as ações partindo da primeira ação do processo inicial $P_{1}$:
+	\item Trilhar a sequência de troca de mensagens. Toda ação de entrada e saída em TPi, como $\overline{y}\langle x \rangle.P$ e $y(x).P$, por exemplo, pode ser seguida ou não de um ponto "$.$", que indica uma nova ação a ser tomada após a execução da ação antecedente. Portanto, é possível traçar o caminho ordenado da troca de mensagens, da primeira à última ação, que são armazenadas no conjunto $\mathcal{A}$ seguidas de seu processo correspondente, formando uma dupla $(a_{n}, P_{m})$. Para isso, o algoritmo percorre as ações partindo da primeira ação do processo inicial $P_{1}$:
 		\begin{itemize}
-			\item  Para cada ação de saída $\overline{y}\langle x \rangle$, a mesma é alocada em $\mathcal{S}$. Em seguida, deve ser localizada uma ação de entrada $y(n)$, em que $y$, $x$ e $n$ representam nomes abstratos tal que $y, x, n \in \mathcal{N}$, e o nome $y$ deve ser igual em ambas as ações. É importante frisar que, uma porta de entrada de uma ação pode estar presente em outras ações, assim, todas irão receber a mesma mensagem simultaneamente;
-			\item Para cada ação de entrada localizada seguida "$.$", a ação é armazenada em $\mathcal{S}$ e o algoritmo segue para a ação posterior ao ponto.
+			\item  Para cada ação de saída $\overline{y}\langle x \rangle$, a mesma é alocada em $\mathcal{A}$. Em seguida, deve ser localizada uma ação de entrada $y(n)$, em que $y$, $x$ e $n$ representam nomes abstratos tal que $y, x, n \in \mathcal{N}$, e o nome $y$ deve ser igual em ambas as ações. É importante frisar que, uma porta de entrada de uma ação pode estar presente em outras ações, assim, todas irão receber a mesma mensagem simultaneamente;
+			\item Para cada ação de entrada localizada seguida de "$.$", a ação é armazenada em $\mathcal{A}$ e o algoritmo segue para a ação posterior ao ponto.
 		\end{itemize}
-	\item O algoritmo encerra quando:
-		\begin{itemize}
-			\item Não é encontrada uma ação com a porta de entrada $y$ correspondente a uma porta de saída $\overline{y}$;
-			\item É armazenada uma ação de entrada $y(n)$, em que a mesma encerra o conjunto de ações da definição do processo a qual pertence.
-		\end{itemize}
+	\item O algoritmo encerra quando todas as ações já foram armazenadas em $\mathcal{A}$.
+%		\begin{itemize}
+%			\item Não é encontrada uma ação com a porta de entrada $y$ correspondente a uma porta de saída $\overline{y}$;
+%			\item É armazenada uma ação de entrada $y(n)$, em que a mesma encerra o conjunto de ações da definição do processo a qual pertence.
+%		\end{itemize}
 \end{enumerate}
 
 Após a aplicação do algoritmo, o sistema é representado pela quíntupla $$s = (name, Pi, \mathcal{P}, \mathcal{D} = \{(P_{1}, \{a_{1},...,a_{n}\}), ..., (P_{m}, \{a_{1},...,a_{n}\})\}, \mathcal{A} = \{(a_{1}, P_{1}), (a_{2}, P_{1})..., (a_{n}, P_{m})\}).$$
@@ -167,7 +167,7 @@ Sendo que:
 \begin{itemize}
 	\item $name$: É o identificador único do compromisso;
 	\item $Pi$: Representa o processo inicial e a mensagem carregada pelo mesmo, denotado como $(Pi, Mi)$, tal que $Pi \in \mathcal{P}$ e $Mi$;
-	\item $\mathcal{P}$: Conjunto dos processos $(P_{1}, P_{2}, ..., P_{n})$;
+	\item $\mathcal{P}$: Conjunto dos processos $\{P_{1}, P_{2}, ..., P_{n}\}$;
 	\item $\mathcal{D}$: Conjunto dos processos e das ações que formam suas definições, tal que $P_{1}, ..., P_{m} \in \mathcal{P}$ e $a_{1}, ..., a_{n} \in \mathbb{A}$;
 	\item $\mathcal{A}$: Conjunto das ações dispostas de acordo com sua ordem de execução no sistema, seguidas de seus respectivos processos.
 	%\item $F$: Dupla composta da ação final e seu processo correspondente.
